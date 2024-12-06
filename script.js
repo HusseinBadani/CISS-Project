@@ -5,4 +5,4 @@ document.getElementById("convert-button").addEventListener("click", function () 
     if (isNaN(length)) {
         alert("Please enter a valid number.");
         return;
-    }
+    } 
