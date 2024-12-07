@@ -7,28 +7,38 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Length Converter</h1>
-    <form id="converter-form">
-        <label for="length">Enter Length:</label>
-        <input type="number" step="any" id="length" name="length" required>
+    <!-- Branding Header -->
+    <header>
+        <h1>Hussein's Final Project</h1>
+        <p>CISS100 - Length Converter</p>
+    </header>
 
-        <label for="unit">Select Unit:</label>
-        <select id="unit" name="unit">
-            <option value="meters">Meters</option>
-            <option value="centimeters">Centimeters</option>
-            <option value="feet">Feet</option>
-            <option value="inches">Inches</option>
-        </select>
+    <!-- Main Content -->
+    <main>
+        <h1>Length Converter</h1>
+        <form id="converter-form">
+            <label for="length">Enter Length:</label>
+            <input type="number" step="any" id="length" name="length" required>
 
-        <button type="button" id="convert-button">Convert</button>
-    </form>
+            <label for="unit">Select Unit:</label>
+            <select id="unit" name="unit">
+                <option value="meters">Meters</option>
+                <option value="centimeters">Centimeters</option>
+                <option value="feet">Feet</option>
+                <option value="inches">Inches</option>
+            </select>
 
-    <h2>Conversion Results:</h2>
-    <ul id="results"></ul>
+            <button type="button" id="convert-button">Convert</button>
+        </form>
 
-    <canvas id="chart" width="400" height="200"></canvas>
+        <h2>Conversion Results:</h2>
+        <ul id="results"></ul>
 
+        <!-- Placeholder for Visualization -->
+        <canvas id="chart" width="400" height="200"></canvas>
+    </main>
+
+    <!-- Script -->
     <script src="script.js"></script>
 </body>
 </html>
-#html is done
