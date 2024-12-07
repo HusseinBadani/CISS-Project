@@ -30,3 +30,45 @@ function convertLength(value, unit) {
             meters = value / 39.3701;
             break;
     }
+
+    // Convert meters to other units
+    return {
+        meters: meters.toFixed(2),
+        centimeters: (meters * 100).toFixed(2),
+        feet: (meters * 3.28084).toFixed(2),
+        inches: (meters * 39.3701).toFixed(2),
+    };
+}
+
+function displayResults(conversions) {
+    const resultsList = document.getElementById("results");
+    resultsList.innerHTML = "";
+
+    for (const [unit, value] of Object.entries(conversions)) {
+        const listItem = document.createElement("li");
+        listItem.textContent = ${unit}: ${value};
+        resultsList.appendChild(listItem);
+    }
+}
+
+function drawChart(conversions) {
+    const ctx = document.getElementById("chart").getContext("2d");
+    const data = {
+        labels: Object.keys(conversions),
+        datasets: [{
+            label: "Length Conversion",
+            data: Object.values(conversions),
+            backgroundColor: ["blue", "green", "orange", "red"],
+        }],
+    };
+
+    // Clear previous chart
+    if (window.chart) {
+        window.chart.destroy();
+    }
+
+    window.chart = new Chart(ctx, {
+        type: "bar",
+        data: data,
+    });
+}
