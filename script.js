@@ -33,10 +33,10 @@ function convertLength(value, unit) {
 
     // Convert meters to other units
     return {
-        meters: meters.toFixed(2),
-        centimeters: (meters * 100).toFixed(2),
-        feet: (meters * 3.28084).toFixed(2),
-        inches: (meters * 39.3701).toFixed(2),
+        Meters: meters.toFixed(2),
+        Centimeters: (meters * 100).toFixed(2),
+        Feet: (meters * 3.28084).toFixed(2),
+        Inches: (meters * 39.3701).toFixed(2),
     };
 }
 
@@ -46,7 +46,7 @@ function displayResults(conversions) {
 
     for (const [unit, value] of Object.entries(conversions)) {
         const listItem = document.createElement("li");
-        listItem.textContent = `${unit}: ${value}`;  // Corrected this line
+        listItem.textContent = `${unit}: ${value}`;
         resultsList.appendChild(listItem);
     }
 }
@@ -70,5 +70,27 @@ function drawChart(conversions) {
     window.chart = new Chart(ctx, {
         type: "bar",
         data: data,
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    display: false,
+                },
+            },
+            scales: {
+                x: {
+                    title: {
+                        display: true,
+                        text: "Units",
+                    },
+                },
+                y: {
+                    title: {
+                        display: true,
+                        text: "Values",
+                    },
+                },
+            },
+        },
     });
 }
