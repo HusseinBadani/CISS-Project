@@ -46,7 +46,7 @@ function displayResults(conversions) {
 
     for (const [unit, value] of Object.entries(conversions)) {
         const listItem = document.createElement("li");
-        listItem.textContent = ${unit}: ${value};
+        listItem.textContent = `${unit}: ${value}`;  // Corrected this line
         resultsList.appendChild(listItem);
     }
 }
@@ -69,6 +69,6 @@ function drawChart(conversions) {
 
     window.chart = new Chart(ctx, {
         type: "bar",
-        data: data,
-    });
+        data: data,
+    });
 }
