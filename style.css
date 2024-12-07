@@ -1,19 +1,20 @@
-
+/* General Styling */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f9; /* Light gray background */
-    color: #333; /* Dark text for readability */
+    background-color: light grey; /* Light background for contrast */
+    color: dark grey; /* Dark text for readability */
     text-align: center;
 }
 
+/* Header Section */
 header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    background-color: #4CAF50; /* Green background */
+    background-color: grey; /* Neutral header color */
     color: white;
     padding: 10px 20px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -30,14 +31,16 @@ header p {
     font-size: 14px;
 }
 
+/* Main Content */
 main {
     margin-top: 80px; /* Space below fixed header */
     padding: 20px;
 }
 
+/* Form Styling */
 form {
     margin-bottom: 20px;
-    background-color: #ffffff;
+    background-color: white;
     padding: 15px;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -53,7 +56,7 @@ label {
 input, select, button {
     padding: 10px;
     font-size: 16px;
-    border: 1px solid #ccc;
+    border: 1px solid light grey; /* Subtle border */
     border-radius: 4px;
     margin-bottom: 10px;
     width: 100%;
@@ -61,7 +64,7 @@ input, select, button {
 }
 
 button {
-    background-color: #4CAF50;
+    background-color: grey; /* Neutral button color */
     color: white;
     border: none;
     cursor: pointer;
@@ -69,9 +72,10 @@ button {
 }
 
 button:hover {
-    background-color: #45a049; 
+    background-color: darker grey; /* Slightly darker button on hover */
 }
 
+/* Results Section */
 h2 {
     margin-top: 20px;
 }
@@ -81,8 +85,9 @@ ul {
     padding: 0;
 }
 
+/* Footer */
 footer {
     margin-top: 30px;
     font-size: 12px;
-    color: #666;
+    color: dark grey; /* Matches body text color */
 }
