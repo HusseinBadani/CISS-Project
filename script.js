@@ -13,14 +13,6 @@ document.getElementById("convert-button").addEventListener("click", function () 
     addToHistory(length, unit, conversions);
 });
 
-document.getElementById("reset-button").addEventListener("click", function () {
-    document.getElementById("length").value = "";
-    document.getElementById("unit").value = "meters";
-    document.getElementById("results").innerHTML = "";
-    document.getElementById("history").innerHTML = "";
-});
-
-// Conversion Logic
 function convertLength(value, unit) {
     let meters;
 
@@ -43,64 +35,32 @@ function convertLength(value, unit) {
     };
 }
 
-// Display Results
 function displayResults(conversions) {
     const resultsList = document.getElementById("results");
     resultsList.innerHTML = "";
-    for (let unit in conversions) {
+
+    for (const [unit, value] of Object.entries(conversions)) {
         const listItem = document.createElement("li");
-        listItem.textContent = `${unit}: ${conversions[unit]}`;
+        listItem.textContent = `${unit}: ${value}`;
         resultsList.appendChild(listItem);
     }
 }
 
-// Add Conversion History
 function addToHistory(length, unit, conversions) {
     const historyList = document.getElementById("history");
     const historyItem = document.createElement("li");
-    historyItem.textContent = `${length} ${unit} → Meters: ${conversions.Meters}, Centimeters: ${conversions.Centimeters}, Feet: ${conversions.Feet}, Inches: ${conversions.Inches}, Kilometers: ${conversions.Kilometers}, Miles: ${conversions.Miles}`;
-
+    historyItem.textContent = `Converted ${length} ${unit} → ${JSON.stringify(conversions)}`;
     historyList.appendChild(historyItem);
 }
 
-// Edit History Button
-document.getElementById("edit-history").addEventListener("click", function () {
-    const historyList = document.getElementById("history");
-    const allItems = historyList.getElementsByTagName("li");
-    
-    if (historyList.classList.contains("editing")) {
-        // Remove delete buttons
-        Array.from(allItems).forEach(item => {
-            const deleteBtn = item.querySelector(".delete-btn");
-            if (deleteBtn) deleteBtn.remove();
-        });
-        document.getElementById("edit-history").textContent = "Edit History";
-    } else {
-        // Add delete buttons
-        Array.from(allItems).forEach(item => {
-            const deleteBtn = document.createElement("button");
-            deleteBtn.textContent = "Delete";
-            deleteBtn.classList.add("delete-btn");
-            deleteBtn.addEventListener("click", function () {
-                item.remove();
-            });
-            item.appendChild(deleteBtn);
-        });
-        document.getElementById("edit-history").textContent = "Save History";
-    }
-
-    historyList.classList.toggle("editing");
+document.getElementById("reset-button").addEventListener("click", function () {
+    document.getElementById("length").value = "";
+    document.getElementById("unit").value = "meters";
+    document.getElementById("results").innerHTML = "";
+    document.getElementById("history").innerHTML = "";
 });
 
-// Night Mode Toggle
-document.getElementById("night-mode-toggle").addEventListener("click", function () {
-    document.body.classList.toggle("night-mode");
-    document.querySelector("header").classList.toggle("night-mode");
-    document.querySelector("main").classList.toggle("night-mode");
-    document.querySelectorAll("button").forEach(button => button.classList.toggle("night-mode"));
-});
-
-// Change Background Color
+// Background Color Change Logic
 document.getElementById("change-bg").addEventListener("click", function () {
     document.body.style.backgroundColor = randomColor();
 });
@@ -110,4 +70,4 @@ function randomColor() {
     const g = Math.floor(Math.random() * 256);
     const b = Math.floor(Math.random() * 256);
     return `rgb(${r}, ${g}, ${b})`;
-}
+});
