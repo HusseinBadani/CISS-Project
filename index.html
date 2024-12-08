@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Length Converter</title>
+    <title>Enhanced Length Converter</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -26,6 +26,7 @@
                 <option value="miles">Miles</option>
             </select>
             <button type="button" id="convert-button">Convert</button>
+            <button type="button" id="reset-button">Reset</button>
         </form>
 
         <h2>Conversion Results:</h2>
@@ -34,9 +35,13 @@
         <h2>Conversion History:</h2>
         <ul id="history"></ul>
 
-        <!-- Dynamic Background Button -->
-        <h2>Change Background Color:</h2>
-        <button id="change-bg">Change Background Color</button>
+        <!-- Progress Bar -->
+        <div id="progress-container">
+            <div id="progress-bar"></div>
+        </div>
+
+        <!-- Success message -->
+        <div id="success-message" class="hidden">Conversion Successful!</div>
     </main>
     <script src="script.js"></script>
 </body>
