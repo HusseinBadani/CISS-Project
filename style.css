@@ -6,6 +6,7 @@ body {
     background-color: lightgrey;
     color: darkslategray;
     text-align: center;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 /* Header Section */
@@ -26,15 +27,34 @@ header h1 {
     font-size: 24px;
 }
 
-header p {
-    margin: 0;
-    font-size: 14px;
+header button {
+    margin-top: 10px;
+    background-color: white;
+    color: grey;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
-/* Main Content */
-main {
-    margin-top: 80px;
-    padding: 20px;
+header button:hover {
+    background-color: darkslategray;
+    color: white;
+}
+
+/* Dark Mode Styling */
+body.dark-mode {
+    background-color: #333;
+    color: white;
+}
+
+body.dark-mode header {
+    background-color: black;
+}
+
+body.dark-mode header button {
+    background-color: grey;
+    color: white;
 }
 
 /* Form Styling */
@@ -47,41 +67,7 @@ form {
     display: inline-block;
 }
 
-label {
-    display: block;
-    margin: 10px 0 5px;
-    font-weight: bold;
-}
-
-input, select, button {
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid lightgray;
-    border-radius: 4px;
-    margin-bottom: 10px;
-    width: 100%;
-    max-width: 300px;
-}
-
-button {
-    background-color: grey;
-    color: white;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-button:hover {
-    background-color: darkslategray;
-}
-
 /* Results Section */
-h2 {
-    margin-top: 20px;
-    font-size: 1.5em;
-    color: darkslategray;
-}
-
 ul {
     list-style: none;
     padding: 0;
