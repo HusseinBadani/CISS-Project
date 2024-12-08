@@ -55,11 +55,6 @@ function addToHistory(length, unit, conversions) {
     historyList.appendChild(historyItem);
 }
 
-// Dark Mode Toggle
-document.getElementById("dark-mode-toggle").addEventListener("click", function () {
-    document.body.classList.toggle("dark-mode");
-});
-
 // Dynamic Background Color Based on Length
 function changeBackgroundColor(length) {
     let r = length % 256;  // Use length for color calculation
