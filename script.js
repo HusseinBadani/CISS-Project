@@ -42,7 +42,7 @@ function convertLength(value, unit) {
 
 function displayResults(conversions) {
     const resultsList = document.getElementById("results");
-    resultsList.innerHTML = "";
+    resultsList.innerHTML = ""; // Clear previous results
 
     for (const [unit, value] of Object.entries(conversions)) {
         const listItem = document.createElement("li");
@@ -53,11 +53,15 @@ function displayResults(conversions) {
 
 function drawChart(conversions) {
     const ctx = document.getElementById("chart").getContext("2d");
+
+    // Log conversions to ensure data is correct
+    console.log("Conversion Data:", Object.values(conversions));
+
     const data = {
-        labels: Object.keys(conversions),
+        labels: Object.keys(conversions),  // Unit labels (Meters, Centimeters, etc.)
         datasets: [{
             label: "Length Conversion",
-            data: Object.values(conversions),
+            data: Object.values(conversions), // Conversion values
             backgroundColor: ["blue", "green", "orange", "red"],
         }],
     };
