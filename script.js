@@ -54,16 +54,20 @@ function addToHistory(length, unit, conversions) {
     const historyItem = document.createElement("li");
     historyItem.classList.add("history-item");
 
-    // Moved the text inside the curly braces as requested
-    historyItem.innerHTML = `Converted ${length} ${unit} → ${JSON.stringify(conversions)}
-                            <button class="delete-btn" onclick="deleteHistoryItem(this)">Delete</button>`;
-    historyList.appendChild(historyItem);
-}
+    // Moved the history text inside the curly braces as requested
+    historyItem.innerHTML = `Converted ${length} ${unit} → ${JSON.stringify(conversions)}`;
+    
+    // Add delete button to history item
+    const deleteButton = document.createElement("button");
+    deleteButton.textContent = "Delete";
+    deleteButton.classList.add("delete-btn");
+    deleteButton.onclick = function () {
+        historyItem.remove(); // Remove history item on delete
+    };
 
-// Delete History Item
-function deleteHistoryItem(button) {
-    const historyItem = button.parentElement;
-    historyItem.remove();
+    // Append delete button to history item
+    historyItem.appendChild(deleteButton);
+    historyList.appendChild(historyItem);
 }
 
 // Dynamic Background Color Based on Length
