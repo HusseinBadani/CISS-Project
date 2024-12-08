@@ -1,22 +1,19 @@
-// Event Listener for Conversion
-document.getElementById("length").addEventListener("input", handleConversion);
-
-// Dark Mode Toggle
-document.getElementById("dark-mode-toggle").addEventListener("click", toggleDarkMode);
-
-const historyList = document.getElementById("history");
-
-function handleConversion() {
+// Event listener for the Convert button
+document.getElementById("convert-button").addEventListener("click", function () {
     const length = parseFloat(document.getElementById("length").value);
     const unit = document.getElementById("unit").value;
 
-    if (isNaN(length)) return;
+    if (isNaN(length)) {
+        alert("Please enter a valid number.");
+        return;
+    }
 
     const conversions = convertLength(length, unit);
     displayResults(conversions);
-    updateHistory(length, unit, conversions);
-}
+    addToHistory(length, unit, conversions);
+});
 
+// Function to convert length
 function convertLength(value, unit) {
     let meters;
 
@@ -43,6 +40,7 @@ function convertLength(value, unit) {
     };
 }
 
+// Function to display results
 function displayResults(conversions) {
     const resultsList = document.getElementById("results");
     resultsList.innerHTML = "";
@@ -54,12 +52,15 @@ function displayResults(conversions) {
     }
 }
 
-function updateHistory(length, unit, conversions) {
+// Function to add conversion to history
+function addToHistory(length, unit, conversions) {
+    const historyList = document.getElementById("history");
     const historyItem = document.createElement("li");
-    historyItem.textContent = `Input: ${length} ${unit}, Converted to: ${JSON.stringify(conversions)}`;
+    historyItem.textContent = `${length} ${unit} = ${Object.values(conversions).join(", ")}`;
     historyList.appendChild(historyItem);
 }
 
-function toggleDarkMode() {
-    document.body.classList.toggle("dark-mode");
-}
+// Dark mode toggle
+document.getElementById("dark-mode-toggle").addEventListener("click", function () {
+    document.body.classList.toggle("dark");
+});
