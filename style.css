@@ -65,19 +65,7 @@ form {
     align-items: center;
 }
 
-/* Edit History Button */
-#edit-history {
-    display: block;
-    margin: 20px auto;
-    font-size: 18px;
-    background-color: lightgray;
-    color: darkslategray;
-    border: none;
-    cursor: pointer;
-    padding: 10px 20px;
-    border-radius: 5px;
-    width: 200px;
-}
+
 
 #edit-history:hover {
     background-color: darkslategray;
