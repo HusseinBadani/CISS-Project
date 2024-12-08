@@ -9,7 +9,6 @@ document.getElementById("convert-button").addEventListener("click", function () 
 
     const conversions = convertLength(length, unit);
     displayResults(conversions);
-    drawChart(conversions);
 });
 
 function convertLength(value, unit) {
@@ -48,60 +47,5 @@ function displayResults(conversions) {
         const listItem = document.createElement("li");
         listItem.textContent = `${unit}: ${value}`;
         resultsList.appendChild(listItem);
-    }
-}
-
-function drawChart(conversions) {
-    const ctx = document.getElementById("chart").getContext("2d");
-
-    // Check if conversions data is available
-    if (!conversions || Object.keys(conversions).length === 0) {
-        console.error("No data available to draw the chart");
-        return;
-    }
-
-    const data = {
-        labels: Object.keys(conversions),
-        datasets: [{
-            label: "Length Conversion",
-            data: Object.values(conversions),
-            backgroundColor: ["blue", "green", "orange", "red"],
-        }],
-    };
-
-    try {
-        // Clear previous chart
-        if (window.chart) {
-            window.chart.destroy();
-        }
-
-        window.chart = new Chart(ctx, {
-            type: "bar",
-            data: data,
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: {
-                        display: false,
-                    },
-                },
-                scales: {
-                    x: {
-                        title: {
-                            display: true,
-                            text: "Units",
-                        },
-                    },
-                    y: {
-                        title: {
-                            display: true,
-                            text: "Values",
-                        },
-                    },
-                },
-            },
-        });
-    } catch (error) {
-        console.error("Error creating chart:", error);
     }
 }
