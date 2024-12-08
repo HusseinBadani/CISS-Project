@@ -1,20 +1,25 @@
-document.getElementById("convert-button").addEventListener("click", function () {
+// Event Listener for Conversion
+document.getElementById("length").addEventListener("input", handleConversion);
+
+// Dark Mode Toggle
+document.getElementById("dark-mode-toggle").addEventListener("click", toggleDarkMode);
+
+const historyList = document.getElementById("history");
+
+function handleConversion() {
     const length = parseFloat(document.getElementById("length").value);
     const unit = document.getElementById("unit").value;
 
-    if (isNaN(length)) {
-        alert("Please enter a valid number.");
-        return;
-    }
+    if (isNaN(length)) return;
 
     const conversions = convertLength(length, unit);
     displayResults(conversions);
-});
+    updateHistory(length, unit, conversions);
+}
 
 function convertLength(value, unit) {
     let meters;
 
-    // Convert input to meters
     switch (unit) {
         case "meters":
             meters = value;
@@ -30,7 +35,6 @@ function convertLength(value, unit) {
             break;
     }
 
-    // Convert meters to other units
     return {
         Meters: meters.toFixed(2),
         Centimeters: (meters * 100).toFixed(2),
@@ -48,4 +52,14 @@ function displayResults(conversions) {
         listItem.textContent = `${unit}: ${value}`;
         resultsList.appendChild(listItem);
     }
+}
+
+function updateHistory(length, unit, conversions) {
+    const historyItem = document.createElement("li");
+    historyItem.textContent = `Input: ${length} ${unit}, Converted to: ${JSON.stringify(conversions)}`;
+    historyList.appendChild(historyItem);
+}
+
+function toggleDarkMode() {
+    document.body.classList.toggle("dark-mode");
 }
