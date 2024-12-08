@@ -24,8 +24,8 @@ function convertLength(value, unit) {
         case "centimeters": meters = value / 100; break;
         case "feet": meters = value / 3.28084; break;
         case "inches": meters = value / 39.3701; break;
-        case "kilometers": meters = value / 1000; break;
-        case "miles": meters = value / 1609.34; break;
+        case "kilometers": meters = value / 1000; break; // Added kilometers
+        case "miles": meters = value / 1609.34; break; // Added miles
     }
 
     return {
@@ -33,14 +33,14 @@ function convertLength(value, unit) {
         Centimeters: (meters * 100).toFixed(2),
         Feet: (meters * 3.28084).toFixed(2),
         Inches: (meters * 39.3701).toFixed(2),
-        Kilometers: (meters / 1000).toFixed(2),
-        Miles: (meters / 1609.34).toFixed(2)
+        Kilometers: (meters / 1000).toFixed(2), // Added kilometers
+        Miles: (meters / 1609.34).toFixed(2), // Added miles
     };
 }
 
 function displayResults(conversions) {
     const resultsList = document.getElementById("results");
-    resultsList.innerHTML = "";
+    resultsList.innerHTML = "";  // Clear previous results
 
     for (const [unit, value] of Object.entries(conversions)) {
         const listItem = document.createElement("li");
@@ -52,8 +52,17 @@ function displayResults(conversions) {
 function addToHistory(length, unit, conversions) {
     const historyList = document.getElementById("history");
     const historyItem = document.createElement("li");
-    historyItem.textContent = `Converted ${length} ${unit} → ${JSON.stringify(conversions)}`;
+    historyItem.classList.add("history-item");
+
+    historyItem.innerHTML = `Converted ${length} ${unit} → ${JSON.stringify(conversions)} 
+                            <button class="delete-btn" onclick="deleteHistoryItem(this)">Delete</button>`;
     historyList.appendChild(historyItem);
+}
+
+// Delete History Item
+function deleteHistoryItem(button) {
+    const historyItem = button.parentElement;
+    historyItem.remove();
 }
 
 // Dynamic Background Color Based on Length
@@ -64,20 +73,17 @@ function changeBackgroundColor(length) {
     document.body.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
 }
 
-// Edit History Button Logic
-document.getElementById("edit-history").addEventListener("click", function () {
-    const historyItems = document.querySelectorAll("#history li");
-    historyItems.forEach(item => {
-        const deleteButton = document.createElement("button");
-        deleteButton.textContent = "Delete";
-        deleteButton.classList.add("delete-btn");
-        item.appendChild(deleteButton);
-
-        deleteButton.addEventListener("click", function () {
-            item.remove();
-        });
-    });
+// Change Background Color Button Action
+document.getElementById("change-bg").addEventListener("click", function () {
+    document.body.style.backgroundColor = randomColor();
 });
+
+function randomColor() {
+    const r = Math.floor(Math.random() * 256);
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+    return `rgb(${r}, ${g}, ${b})`;
+}
 
 // Reset Button Logic
 document.getElementById("reset-button").addEventListener("click", function () {
@@ -85,5 +91,5 @@ document.getElementById("reset-button").addEventListener("click", function () {
     document.getElementById("unit").value = "meters";
     document.getElementById("results").innerHTML = "";
     document.getElementById("history").innerHTML = "";
-    document.body.style.backgroundColor = "lightgray";  // Reset background color
+    document.body.style.backgroundColor = "lightgray"; // Reset background color
 });
