@@ -59,4 +59,36 @@ function displayResults(conversions) {
 function addToHistory(length, unit, conversions) {
     const historyList = document.getElementById("history");
     const historyItem = document.createElement("li");
-    history
+    historyItem.textContent = `${length} ${unit} → Meters: ${conversions.Meters}, Centimeters: ${conversions.Centimeters}, Feet: ${conversions.Feet}, Inches: ${conversions.Inches}, Kilometers: ${conversions.Kilometers}, Miles: ${conversions.Miles}`;
+    
+    const editButton = document.createElement("button");
+    editButton.textContent = "Edit";
+    editButton.addEventListener("click", function() {
+        historyItem.classList.toggle("editing");
+        if (historyItem.classList.contains("editing")) {
+            editButton.textContent = "Save";
+        } else {
+            editButton.textContent = "Edit";
+        }
+    });
+    
+    historyItem.appendChild(editButton);
+    historyList.appendChild(historyItem);
+}
+
+// Night Mode Toggle
+document.getElementById("night-mode-toggle").addEventListener("click", function () {
+    document.body.classList.toggle("night-mode");
+    document.querySelector("header").classList.toggle("night-mode");
+    document.querySelector("main").classList.toggle("night-mode");
+    document.querySelectorAll("button").forEach(button => button.classList.toggle("night-mode"));
+});
+
+// Reset Button (resets everything to default)
+document.getElementById("reset-button").addEventListener("click", function() {
+    document.getElementById("length").value = "";
+    document.getElementById("unit").value = "meters";
+    document.getElementById("results").innerHTML = "";
+    document.getElementById("history").innerHTML = "";
+});
+
