@@ -43,38 +43,36 @@ function convertLength(value, unit) {
     };
 }
 
-// Display Conversion Results
+// Display Results
 function displayResults(conversions) {
     const resultsList = document.getElementById("results");
     resultsList.innerHTML = "";
-
-    for (const [unit, value] of Object.entries(conversions)) {
+    for (let unit in conversions) {
         const listItem = document.createElement("li");
-        listItem.textContent = `${unit}: ${value}`;
+        listItem.textContent = `${unit}: ${conversions[unit]}`;
         resultsList.appendChild(listItem);
     }
 }
 
-// Add to Conversion History
+// Add Conversion History
 function addToHistory(length, unit, conversions) {
     const historyList = document.getElementById("history");
     const historyItem = document.createElement("li");
     historyItem.textContent = `${length} ${unit} → Meters: ${conversions.Meters}, Centimeters: ${conversions.Centimeters}, Feet: ${conversions.Feet}, Inches: ${conversions.Inches}, Kilometers: ${conversions.Kilometers}, Miles: ${conversions.Miles}`;
-    
-    const editButton = document.createElement("button");
-    editButton.textContent = "Edit";
-    editButton.addEventListener("click", function() {
-        historyItem.classList.toggle("editing");
-        if (historyItem.classList.contains("editing")) {
-            editButton.textContent = "Save";
-        } else {
-            editButton.textContent = "Edit";
-        }
-    });
-    
-    historyItem.appendChild(editButton);
+
     historyList.appendChild(historyItem);
 }
+
+// Edit History Button
+document.getElementById("edit-history").addEventListener("click", function () {
+    const historyList = document.getElementById("history");
+    historyList.classList.toggle("editing");
+    if (historyList.classList.contains("editing")) {
+        document.getElementById("edit-history").textContent = "Save History";
+    } else {
+        document.getElementById("edit-history").textContent = "Edit History";
+    }
+});
 
 // Night Mode Toggle
 document.getElementById("night-mode-toggle").addEventListener("click", function () {
@@ -84,11 +82,14 @@ document.getElementById("night-mode-toggle").addEventListener("click", function 
     document.querySelectorAll("button").forEach(button => button.classList.toggle("night-mode"));
 });
 
-// Reset Button (resets everything to default)
-document.getElementById("reset-button").addEventListener("click", function() {
-    document.getElementById("length").value = "";
-    document.getElementById("unit").value = "meters";
-    document.getElementById("results").innerHTML = "";
-    document.getElementById("history").innerHTML = "";
+// Change Background Color
+document.getElementById("change-bg").addEventListener("click", function () {
+    document.body.style.backgroundColor = randomColor();
 });
 
+function randomColor() {
+    const r = Math.floor(Math.random() * 256);
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+    return `rgb(${r}, ${g}, ${b})`;
+}
