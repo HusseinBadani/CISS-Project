@@ -54,7 +54,8 @@ function addToHistory(length, unit, conversions) {
     const historyItem = document.createElement("li");
     historyItem.classList.add("history-item");
 
-    historyItem.innerHTML = `Converted ${length} ${unit} → ${JSON.stringify(conversions)} 
+    // Moved the text inside the curly braces as requested
+    historyItem.innerHTML = `{Converted ${length} ${unit} → ${JSON.stringify(conversions)}}
                             <button class="delete-btn" onclick="deleteHistoryItem(this)">Delete</button>`;
     historyList.appendChild(historyItem);
 }
