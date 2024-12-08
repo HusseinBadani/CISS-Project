@@ -3,25 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Length Converter</title>
+    <title>Enhanced Length Converter</title>
     <link rel="stylesheet" href="style.css">
-    <script defer src="script.js"></script>
 </head>
 <body>
-    <!-- Branding Header -->
     <header>
         <h1>Hussein's Final Project</h1>
         <p>CISS100 - Length Converter</p>
         <button id="dark-mode-toggle">Toggle Dark Mode</button>
     </header>
-
-    <!-- Main Content -->
     <main>
         <h1>Length Converter</h1>
         <form id="converter-form">
             <label for="length">Enter Length:</label>
             <input type="number" step="any" id="length" name="length" required>
-
             <label for="unit">Select Unit:</label>
             <select id="unit" name="unit">
                 <option value="meters">Meters</option>
@@ -29,7 +24,6 @@
                 <option value="feet">Feet</option>
                 <option value="inches">Inches</option>
             </select>
-
             <button type="button" id="convert-button">Convert</button>
         </form>
 
@@ -38,6 +32,10 @@
 
         <h2>Conversion History:</h2>
         <ul id="history"></ul>
+
+        <h2>Dynamic Background:</h2>
+        <button id="change-bg">Change Background Color</button>
     </main>
+    <script src="script.js"></script>
 </body>
 </html>
