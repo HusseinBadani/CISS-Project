@@ -4,7 +4,7 @@ body {
     color: darkslategray;
     margin: 0;
     padding: 0;
-    transition: background-color 0.5s, color 0.5s;
+    transition: background-color 0.5s;
 }
 
 /* Header Section */
@@ -87,31 +87,15 @@ input:focus, select:focus, button:focus {
 }
 
 button {
-    background-color: #4CAF50;
-    color: white;
+    background-color: lightgray;
+    color: black;
     border: none;
     cursor: pointer;
     transition: background-color 0.3s ease-in-out;
 }
 
 button:hover {
-    background-color: #45a049;
-}
-
-/* Background Color Button */
-#change-bg {
-    margin-top: 20px;
-    padding: 15px;
-    font-size: 18px;
-    background-color: #008CBA;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    transition: background-color 0.3s;
-}
-
-#change-bg:hover {
-    background-color: #005f73;
+    background-color: #b0b0b0;
 }
 
 /* Conversion Results & History Styling */
@@ -154,33 +138,19 @@ button#edit-history:hover {
     background-color: #e68900;
 }
 
-/* Night Mode */
-body.night-mode {
-    background-color: #2e2e2e;
-    color: #f0f0f0;
-}
-
-header.night-mode {
-    background-color: #333;
-    color: #f0f0f0;
-}
-
-main.night-mode {
-    background-color: #444;
-    color: #f0f0f0;
-}
-
-button.night-mode {
-    background-color: #007BFF;
-}
-
-button.night-mode:hover {
-    background-color: #0056b3;
-}
-
-#change-bg.night-mode {
-    background-color: #333;
+/* Dynamic Background Button */
+#change-bg {
+    margin-top: 20px;
+    padding: 10px;
+    font-size: 18px;
+    background-color: teal;
     color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+#change-bg:hover {
+    background-color: darkcyan;
 }
 
 /* Responsive Design */
@@ -199,9 +169,5 @@ button.night-mode:hover {
 
     input, select, button {
         max-width: 100%;
-    }
-
-    #change-bg {
-        width: 100%;
     }
 }
