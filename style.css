@@ -47,18 +47,13 @@ form {
 }
 
 /* Conversion History Section */
-ul {
+#history {
     list-style: none;
     padding: 0;
     text-align: left;
     display: inline-block;
     width: 100%;
-}
-
-#history {
-    display: inline-block;
-    padding: 0;
-    margin-left: 0;
+    margin-top: 20px;
 }
 
 #history li {
@@ -69,7 +64,7 @@ ul {
     align-items: center;
 }
 
-/* Move the Edit History button to the left */
+/* Edit History Button */
 #edit-history {
     display: block;
     margin: 20px auto;
@@ -80,6 +75,7 @@ ul {
     cursor: pointer;
     padding: 10px 20px;
     border-radius: 5px;
+    width: 200px;
 }
 
 #edit-history:hover {
@@ -101,30 +97,6 @@ ul {
 
 #change-bg:hover {
     background-color: darkcyan;
-}
-
-/* Success Message */
-#success-message {
-    font-size: 18px;
-    color: green;
-    margin-top: 20px;
-    display: none;
-    animation: fadeIn 1s ease-out;
-}
-
-/* Success Message Animation */
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-/* Hidden Class */
-.hidden {
-    display: none;
 }
 
 /* Reset Button */
