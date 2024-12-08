@@ -11,7 +11,6 @@
         <h1>Hussein's Final Project</h1>
         <p>CISS100 - Length Converter</p>
     </header>
-
     <main>
         <h1>Length Converter</h1>
         <form id="converter-form">
@@ -27,19 +26,25 @@
                 <option value="miles">Miles</option>
             </select>
             <button type="button" id="convert-button">Convert</button>
+            <button type="button" id="reset-button">Reset</button>
         </form>
 
         <h2>Conversion Results:</h2>
         <ul id="results"></ul>
 
         <h2>Conversion History:</h2>
-        <button id="edit-history">Edit History</button>
         <ul id="history"></ul>
+
+        <!-- Dynamic Background Button -->
+        <h2>Change Background Color:</h2>
+        <button id="change-bg">Change Background Color</button>
 
         <!-- Success message -->
         <div id="success-message" class="hidden">Conversion Successful!</div>
-    </main>
 
+        <!-- Night Mode Toggle -->
+        <button id="night-mode-toggle">Night Mode</button>
+    </main>
     <script src="script.js"></script>
 </body>
 </html>
