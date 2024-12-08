@@ -24,8 +24,8 @@ function convertLength(value, unit) {
         case "centimeters": meters = value / 100; break;
         case "feet": meters = value / 3.28084; break;
         case "inches": meters = value / 39.3701; break;
-        case "kilometers": meters = value / 1000; break; // Added kilometers
-        case "miles": meters = value / 1609.34; break;  // Added miles
+        case "kilometers": meters = value / 1000; break;
+        case "miles": meters = value / 1609.34; break;
     }
 
     return {
@@ -33,8 +33,8 @@ function convertLength(value, unit) {
         Centimeters: (meters * 100).toFixed(2),
         Feet: (meters * 3.28084).toFixed(2),
         Inches: (meters * 39.3701).toFixed(2),
-        Kilometers: (meters / 1000).toFixed(2),  // Added kilometers conversion
-        Miles: (meters / 1609.34).toFixed(2)  // Added miles conversion
+        Kilometers: (meters / 1000).toFixed(2),
+        Miles: (meters / 1609.34).toFixed(2)
     };
 }
 
