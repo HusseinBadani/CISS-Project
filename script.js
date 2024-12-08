@@ -66,12 +66,30 @@ function addToHistory(length, unit, conversions) {
 // Edit History Button
 document.getElementById("edit-history").addEventListener("click", function () {
     const historyList = document.getElementById("history");
-    historyList.classList.toggle("editing");
+    const allItems = historyList.getElementsByTagName("li");
+    
     if (historyList.classList.contains("editing")) {
-        document.getElementById("edit-history").textContent = "Save History";
-    } else {
+        // Remove delete buttons
+        Array.from(allItems).forEach(item => {
+            const deleteBtn = item.querySelector(".delete-btn");
+            if (deleteBtn) deleteBtn.remove();
+        });
         document.getElementById("edit-history").textContent = "Edit History";
+    } else {
+        // Add delete buttons
+        Array.from(allItems).forEach(item => {
+            const deleteBtn = document.createElement("button");
+            deleteBtn.textContent = "Delete";
+            deleteBtn.classList.add("delete-btn");
+            deleteBtn.addEventListener("click", function () {
+                item.remove();
+            });
+            item.appendChild(deleteBtn);
+        });
+        document.getElementById("edit-history").textContent = "Save History";
     }
+
+    historyList.classList.toggle("editing");
 });
 
 // Night Mode Toggle
