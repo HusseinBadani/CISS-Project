@@ -1,15 +1,17 @@
-document.getElementById("convert-button").addEventListener("click", function () {
-    const length = parseFloat(document.getElementById("length").value);
-    const unit = document.getElementById("unit").value;
+document.addEventListener("DOMContentLoaded", function() {
+    document.getElementById("convert-button").addEventListener("click", function () {
+        const length = parseFloat(document.getElementById("length").value);
+        const unit = document.getElementById("unit").value;
 
-    if (isNaN(length)) {
-        alert("Please enter a valid number.");
-        return;
-    }
+        if (isNaN(length)) {
+            alert("Please enter a valid number.");
+            return;
+        }
 
-    const conversions = convertLength(length, unit);
-    displayResults(conversions);
-    drawChart(conversions);
+        const conversions = convertLength(length, unit);
+        displayResults(conversions);
+        drawChart(conversions);
+    });
 });
 
 function convertLength(value, unit) {
@@ -42,7 +44,7 @@ function convertLength(value, unit) {
 
 function displayResults(conversions) {
     const resultsList = document.getElementById("results");
-    resultsList.innerHTML = ""; // Clear previous results
+    resultsList.innerHTML = "";
 
     for (const [unit, value] of Object.entries(conversions)) {
         const listItem = document.createElement("li");
@@ -53,15 +55,11 @@ function displayResults(conversions) {
 
 function drawChart(conversions) {
     const ctx = document.getElementById("chart").getContext("2d");
-
-    // Log conversions to ensure data is correct
-    console.log("Conversion Data:", Object.values(conversions));
-
     const data = {
-        labels: Object.keys(conversions),  // Unit labels (Meters, Centimeters, etc.)
+        labels: Object.keys(conversions),
         datasets: [{
             label: "Length Conversion",
-            data: Object.values(conversions), // Conversion values
+            data: Object.values(conversions),
             backgroundColor: ["blue", "green", "orange", "red"],
         }],
     };
