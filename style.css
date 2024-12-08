@@ -4,7 +4,7 @@ body {
     color: darkslategray;
     margin: 0;
     padding: 0;
-    transition: background-color 0.5s;
+    transition: background-color 0.5s, color 0.5s;
 }
 
 /* Header Section */
@@ -144,6 +144,14 @@ ul li:hover {
 
 #history li:hover {
     background-color: #e6e6e6;
+}
+
+button#edit-history {
+    background-color: #ff9800;
+}
+
+button#edit-history:hover {
+    background-color: #e68900;
 }
 
 /* Night Mode */
