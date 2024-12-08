@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Length Converter</title>
     <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
 </head>
 <body>
     <!-- Branding Header -->
@@ -28,6 +29,8 @@
                 <option value="feet">Feet</option>
                 <option value="inches">Inches</option>
             </select>
+
+            <button type="button" id="convert-button">Convert</button>
         </form>
 
         <h2>Conversion Results:</h2>
@@ -36,7 +39,5 @@
         <h2>Conversion History:</h2>
         <ul id="history"></ul>
     </main>
-
-    <script src="script.js"></script>
 </body>
 </html>
