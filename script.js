@@ -12,11 +12,14 @@ document.getElementById("convert-button").addEventListener("click", function () 
     displayResults(conversions);
     addToHistory(length, unit, conversions);
 
+    // Change background based on length input
+    changeBackgroundColor(length);
+
     // Show success message with animation
     showSuccessMessage();
 });
 
-// Conversion Logic
+// Convert Length to different units
 function convertLength(value, unit) {
     let meters;
 
@@ -39,7 +42,7 @@ function convertLength(value, unit) {
     };
 }
 
-// Display Conversion Results
+// Display the conversion results
 function displayResults(conversions) {
     const resultsList = document.getElementById("results");
     resultsList.innerHTML = "";
@@ -51,37 +54,20 @@ function displayResults(conversions) {
     }
 }
 
-// Conversion History with Deletion
-let isEditMode = false;
-
-document.getElementById("edit-history").addEventListener("click", function () {
-    isEditMode = !isEditMode;
-    const historyItems = document.querySelectorAll(".history-item");
-    historyItems.forEach(item => {
-        const deleteButton = item.querySelector(".delete-button");
-        deleteButton.style.display = isEditMode ? "inline" : "none";  // Show delete button in edit mode
-    });
-});
-
-// Add to History
+// Add conversion to history
 function addToHistory(length, unit, conversions) {
     const historyList = document.getElementById("history");
     const historyItem = document.createElement("li");
-    historyItem.classList.add("history-item");
-
-    // Create delete button
-    const deleteButton = document.createElement("button");
-    deleteButton.classList.add("delete-button");
-    deleteButton.textContent = "Delete";
-    deleteButton.style.display = "none";  // Hide delete button initially
-    deleteButton.addEventListener("click", function () {
-        historyItem.remove();  // Remove history item when delete button is clicked
-    });
-
-    // Display history item
     historyItem.textContent = `Converted ${length} ${unit} → ${JSON.stringify(conversions)}`;
-    historyItem.appendChild(deleteButton);
     historyList.appendChild(historyItem);
+}
+
+// Dynamic Background Color Based on Length
+function changeBackgroundColor(length) {
+    let r = length % 256;  // Use length for color calculation
+    let g = (length * 2) % 256;
+    let b = (length * 3) % 256;
+    document.body.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
 }
 
 // Success Message Animation
@@ -92,3 +78,28 @@ function showSuccessMessage() {
         successMessage.classList.add("hidden");
     }, 2000);  // Hide message after 2 seconds
 }
+
+// Dynamic Background Color Button
+document.getElementById("change-bg").addEventListener("click", function () {
+    document.body.style.backgroundColor = randomColor();
+});
+
+function randomColor() {
+    const r = Math.floor(Math.random() * 256);
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+    return `rgb(${r}, ${g}, ${b})`;
+}
+
+// Reset Button Logic
+document.getElementById("reset-button").addEventListener("click", function () {
+    document.getElementById("length").value = ''; // Clear the length input
+    document.getElementById("unit").value = 'meters'; // Reset the unit to meters
+    document.getElementById("results").innerHTML = ''; // Clear the results
+    document.getElementById("history").innerHTML = ''; // Clear the history
+});
+
+// Night Mode Toggle
+document.getElementById("night-mode-toggle").addEventListener("click", function () {
+    document.body.classList.toggle("night-mode");
+});
