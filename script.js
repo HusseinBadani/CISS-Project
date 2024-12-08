@@ -1,3 +1,4 @@
+// Length Converter Logic
 document.getElementById("convert-button").addEventListener("click", function () {
     const length = parseFloat(document.getElementById("length").value);
     const unit = document.getElementById("unit").value;
@@ -7,25 +8,15 @@ document.getElementById("convert-button").addEventListener("click", function () 
         return;
     }
 
-    // Show the progress bar
-    document.getElementById("progress-bar").style.width = "0%";
-    setTimeout(function () {
-        document.getElementById("progress-bar").style.width = "100%";
-    }, 100);
-
     const conversions = convertLength(length, unit);
     displayResults(conversions);
     addToHistory(length, unit, conversions);
 
-    // Reset progress bar after a short delay
-    setTimeout(function () {
-        document.getElementById("progress-bar").style.width = "0%";
-    }, 2000);
-
-    // Show success message
+    // Show success message with animation
     showSuccessMessage();
 });
 
+// Conversion Logic
 function convertLength(value, unit) {
     let meters;
 
@@ -48,6 +39,7 @@ function convertLength(value, unit) {
     };
 }
 
+// Display Conversion Results
 function displayResults(conversions) {
     const resultsList = document.getElementById("results");
     resultsList.innerHTML = "";
@@ -59,21 +51,40 @@ function displayResults(conversions) {
     }
 }
 
+// Conversion History with Deletion
+let isEditMode = false;
+
+document.getElementById("edit-history").addEventListener("click", function () {
+    isEditMode = !isEditMode;
+    const historyItems = document.querySelectorAll(".history-item");
+    historyItems.forEach(item => {
+        const deleteButton = item.querySelector(".delete-button");
+        deleteButton.style.display = isEditMode ? "inline" : "none";  // Show delete button in edit mode
+    });
+});
+
+// Add to History
 function addToHistory(length, unit, conversions) {
     const historyList = document.getElementById("history");
     const historyItem = document.createElement("li");
-    historyItem.textContent = `Converted ${length} ${unit} → ${JSON.stringify(conversions)}`;
-    
+    historyItem.classList.add("history-item");
+
+    // Create delete button
     const deleteButton = document.createElement("button");
+    deleteButton.classList.add("delete-button");
     deleteButton.textContent = "Delete";
-    deleteButton.onclick = function() {
-        historyItem.remove();
-    };
-    
+    deleteButton.style.display = "none";  // Hide delete button initially
+    deleteButton.addEventListener("click", function () {
+        historyItem.remove();  // Remove history item when delete button is clicked
+    });
+
+    // Display history item
+    historyItem.textContent = `Converted ${length} ${unit} → ${JSON.stringify(conversions)}`;
     historyItem.appendChild(deleteButton);
     historyList.appendChild(historyItem);
 }
 
+// Success Message Animation
 function showSuccessMessage() {
     const successMessage = document.getElementById("success-message");
     successMessage.classList.remove("hidden");
@@ -81,11 +92,3 @@ function showSuccessMessage() {
         successMessage.classList.add("hidden");
     }, 2000);  // Hide message after 2 seconds
 }
-
-// Reset button functionality
-document.getElementById("reset-button").addEventListener("click", function () {
-    document.getElementById("length").value = '';
-    document.getElementById("unit").selectedIndex = 0;
-    document.getElementById("results").innerHTML = '';
-    document.getElementById("history").innerHTML = '';
-});
