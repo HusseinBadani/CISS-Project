@@ -8,12 +8,6 @@ body {
     transition: background-color 0.5s;
 }
 
-/* Dark Mode */
-.dark-mode {
-    background-color: black;
-    color: white;
-}
-
 /* Header Section */
 header {
     background-color: grey;
