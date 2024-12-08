@@ -11,6 +11,7 @@
         <h1>Hussein's Final Project</h1>
         <p>CISS100 - Length Converter</p>
     </header>
+
     <main>
         <h1>Length Converter</h1>
         <form id="converter-form">
@@ -26,23 +27,19 @@
                 <option value="miles">Miles</option>
             </select>
             <button type="button" id="convert-button">Convert</button>
-            <button type="button" id="reset-button">Reset</button>
         </form>
 
         <h2>Conversion Results:</h2>
         <ul id="results"></ul>
 
         <h2>Conversion History:</h2>
+        <button id="edit-history">Edit History</button>
         <ul id="history"></ul>
-
-        <!-- Progress Bar -->
-        <div id="progress-container">
-            <div id="progress-bar"></div>
-        </div>
 
         <!-- Success message -->
         <div id="success-message" class="hidden">Conversion Successful!</div>
     </main>
+
     <script src="script.js"></script>
 </body>
 </html>
