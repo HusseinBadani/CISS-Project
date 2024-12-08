@@ -6,58 +6,48 @@ body {
     background-color: lightgrey;
     color: darkslategray;
     text-align: center;
-    transition: background-color 0.3s, color 0.3s;
 }
 
 /* Header Section */
 header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
     background-color: grey;
     color: white;
     padding: 10px 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     text-align: left;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 header h1 {
     margin: 0;
-    font-size: 24px;
 }
 
-header button {
+header p {
+    margin: 5px 0 0;
+}
+
+button {
     margin-top: 10px;
-    background-color: white;
-    color: grey;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-header button:hover {
     background-color: darkslategray;
     color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
 }
 
-/* Dark Mode Styling */
-body.dark-mode {
-    background-color: #333;
-    color: white;
-}
-
-body.dark-mode header {
+button:hover {
     background-color: black;
 }
 
-body.dark-mode header button {
-    background-color: grey;
-    color: white;
+/* Main Content */
+main {
+    margin-top: 80px;
+    padding: 20px;
 }
 
-/* Form Styling */
 form {
     margin-bottom: 20px;
     background-color: white;
@@ -67,11 +57,41 @@ form {
     display: inline-block;
 }
 
-/* Results Section */
+label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+}
+
+input, select {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid lightgray;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    width: 100%;
+    max-width: 300px;
+}
+
 ul {
     list-style: none;
     padding: 0;
     margin: 10px auto;
     display: inline-block;
     text-align: left;
+}
+
+/* Dark Mode */
+body.dark {
+    background-color: #333;
+    color: white;
+}
+
+body.dark header {
+    background-color: black;
+}
+
+body.dark button {
+    background-color: white;
+    color: black;
 }
