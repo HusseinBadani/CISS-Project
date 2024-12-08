@@ -1,4 +1,3 @@
-// Wait until the DOM is fully loaded before running the script
 document.addEventListener('DOMContentLoaded', function () {
     // Length Converter Logic
     document.getElementById("convert-button").addEventListener("click", function () {
@@ -16,9 +15,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Change background based on length input
         changeBackgroundColor(length);
-
-        // Show success message with animation
-        showSuccessMessage();
     });
 
     // Length conversion logic
@@ -30,6 +26,8 @@ document.addEventListener('DOMContentLoaded', function () {
             case "centimeters": meters = value / 100; break;
             case "feet": meters = value / 3.28084; break;
             case "inches": meters = value / 39.3701; break;
+            case "kilometers": meters = value * 1000; break;
+            case "miles": meters = value * 1609.34; break;
         }
 
         return {
@@ -37,6 +35,8 @@ document.addEventListener('DOMContentLoaded', function () {
             Centimeters: (meters * 100).toFixed(2),
             Feet: (meters * 3.28084).toFixed(2),
             Inches: (meters * 39.3701).toFixed(2),
+            Kilometers: (meters / 1000).toFixed(2),
+            Miles: (meters / 1609.34).toFixed(2),
         };
     }
 
@@ -66,15 +66,6 @@ document.addEventListener('DOMContentLoaded', function () {
         let g = (length * 2) % 256;
         let b = (length * 3) % 256;
         document.body.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
-    }
-
-    // Success Message Animation
-    function showSuccessMessage() {
-        const successMessage = document.getElementById("success-message");
-        successMessage.classList.remove("hidden");
-        setTimeout(function () {
-            successMessage.classList.add("hidden");
-        }, 2000);  // Hide message after 2 seconds
     }
 
     // Dynamic Background Color Button
