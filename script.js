@@ -78,3 +78,12 @@ document.getElementById("edit-history").addEventListener("click", function () {
         });
     });
 });
+
+// Reset Button Logic
+document.getElementById("reset-button").addEventListener("click", function () {
+    document.getElementById("length").value = "";
+    document.getElementById("unit").value = "meters";
+    document.getElementById("results").innerHTML = "";
+    document.getElementById("history").innerHTML = "";
+    document.body.style.backgroundColor = "lightgray";  // Reset background color
+});
