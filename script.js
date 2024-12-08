@@ -70,4 +70,18 @@ function randomColor() {
     const g = Math.floor(Math.random() * 256);
     const b = Math.floor(Math.random() * 256);
     return `rgb(${r}, ${g}, ${b})`;
+}
+
+// Edit History Functionality
+document.getElementById("edit-history").addEventListener("click", function () {
+    const historyItems = document.querySelectorAll("#history li");
+    historyItems.forEach(function (item) {
+        const deleteButton = document.createElement("button");
+        deleteButton.textContent = "Delete";
+        deleteButton.style.marginLeft = "10px";
+        deleteButton.addEventListener("click", function () {
+            item.remove();
+        });
+        item.appendChild(deleteButton);
+    });
 });
