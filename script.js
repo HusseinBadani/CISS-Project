@@ -55,7 +55,7 @@ function addToHistory(length, unit, conversions) {
     historyItem.classList.add("history-item");
 
     // Moved the text inside the curly braces as requested
-    historyItem.innerHTML = `{Converted ${length} ${unit} → ${JSON.stringify(conversions)}}
+    historyItem.innerHTML = `Converted ${length} ${unit} → ${JSON.stringify(conversions)}
                             <button class="delete-btn" onclick="deleteHistoryItem(this)">Delete</button>`;
     historyList.appendChild(historyItem);
 }
