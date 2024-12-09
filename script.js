@@ -1,4 +1,4 @@
-// Length Converter Logic
+// Length Converter
 document.getElementById("convert-button").addEventListener("click", function () {
     const length = parseFloat(document.getElementById("length").value);
     const unit = document.getElementById("unit").value;
@@ -12,7 +12,6 @@ document.getElementById("convert-button").addEventListener("click", function () 
     displayResults(conversions);
     addToHistory(length, unit, conversions);
 
-    // Change background based on length input
     changeBackgroundColor(length);
 });
 
@@ -24,8 +23,8 @@ function convertLength(value, unit) {
         case "centimeters": meters = value / 100; break;
         case "feet": meters = value / 3.28084; break;
         case "inches": meters = value / 39.3701; break;
-        case "kilometers": meters = value / 1000; break; // Added kilometers
-        case "miles": meters = value / 1609.34; break; // Added miles
+        case "kilometers": meters = value / 1000; break; 
+        case "miles": meters = value / 1609.34; break; 
     }
 
     return {
@@ -33,14 +32,14 @@ function convertLength(value, unit) {
         Centimeters: (meters * 100).toFixed(2),
         Feet: (meters * 3.28084).toFixed(2),
         Inches: (meters * 39.3701).toFixed(2),
-        Kilometers: (meters / 1000).toFixed(2), // Added kilometers
-        Miles: (meters / 1609.34).toFixed(2), // Added miles
+        Kilometers: (meters / 1000).toFixed(2), 
+        Miles: (meters / 1609.34).toFixed(2), 
     };
 }
 
 function displayResults(conversions) {
     const resultsList = document.getElementById("results");
-    resultsList.innerHTML = "";  // Clear previous results
+    resultsList.innerHTML = "";  
 
     for (const [unit, value] of Object.entries(conversions)) {
         const listItem = document.createElement("li");
@@ -54,31 +53,26 @@ function addToHistory(length, unit, conversions) {
     const historyItem = document.createElement("li");
     historyItem.classList.add("history-item");
 
-    // Moved the history text inside the curly braces as requested
     historyItem.innerHTML = `Converted ${length} ${unit} → ${JSON.stringify(conversions)}`;
     
-    // Add delete button to history item
     const deleteButton = document.createElement("button");
     deleteButton.textContent = "Delete";
     deleteButton.classList.add("delete-btn");
     deleteButton.onclick = function () {
-        historyItem.remove(); // Remove history item on delete
+        historyItem.remove(); 
     };
 
-    // Append delete button to history item
     historyItem.appendChild(deleteButton);
     historyList.appendChild(historyItem);
 }
 
-// Dynamic Background Color Based on Length
 function changeBackgroundColor(length) {
-    let r = length % 256;  // Use length for color calculation
+    let r = length % 256; 
     let g = (length * 2) % 256;
     let b = (length * 3) % 256;
     document.body.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
 }
 
-// Change Background Color Button Action
 document.getElementById("change-bg").addEventListener("click", function () {
     document.body.style.backgroundColor = randomColor();
 });
@@ -90,11 +84,10 @@ function randomColor() {
     return `rgb(${r}, ${g}, ${b})`;
 }
 
-// Reset Button Logic
 document.getElementById("reset-button").addEventListener("click", function () {
     document.getElementById("length").value = "";
     document.getElementById("unit").value = "meters";
     document.getElementById("results").innerHTML = "";
     document.getElementById("history").innerHTML = "";
-    document.body.style.backgroundColor = "lightgray"; // Reset background color
+    document.body.style.backgroundColor = "lightgray"; 
 });
