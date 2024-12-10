@@ -36,33 +36,7 @@ h1, h2 {
     color: darkslategray;
 }
 
-/* Converter Toggle Buttons */
-.converter-buttons {
-    margin-bottom: 20px;
-}
-
-.converter-buttons button {
-    padding: 10px 20px;
-    font-size: 16px;
-    margin: 5px;
-    border: none;
-    border-radius: 5px;
-    background-color: teal;
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.converter-buttons button:hover {
-    background-color: darkcyan;
-}
-
-/* Hidden Class */
-.hidden {
-    display: none;
-}
-
-/* Converter Form */
+/* Length and Temperature Converter Form */
 form {
     margin-bottom: 20px;
     padding: 15px;
@@ -73,21 +47,33 @@ form {
 }
 
 /* Conversion Results and History Section */
-#results, #temp-results, #history, #temp-history {
+#results, #history, #temp-results, #temp-history {
     list-style: none;
     padding: 0;
-    margin: 20px auto;
-    text-align: left;
-    display: inline-block;
-    width: 100%;
+    margin: 20px auto; /* Centers the results and history */
+    text-align: center;
+    max-width: 500px; /* Optional: limit width for better readability */
+    background-color: white;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-#history li, #temp-history li {
+#results li, #history li, #temp-results li, #temp-history li {
     margin: 5px 0;
     font-size: 16px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* Neatly aligns content if needed */
     align-items: center;
+}
+
+/* Align conversion actions */
+button {
+    display: block;
+    margin: 10px auto; /* Centers the buttons */
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
 }
 
 /* Change Background Color Button */
@@ -134,4 +120,32 @@ form {
 
 .delete-btn:hover {
     background-color: darkred;
+}
+
+/* Tabs for selecting converters */
+.converter-tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.converter-tab {
+    cursor: pointer;
+    padding: 10px 20px;
+    border: 1px solid darkslategray;
+    background-color: white;
+    color: darkslategray;
+    margin: 0 5px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.converter-tab:hover {
+    background-color: lightgray;
+}
+
+.converter-tab.active {
+    background-color: teal;
+    color: white;
+    border-color: teal;
 }
