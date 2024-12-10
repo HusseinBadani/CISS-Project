@@ -36,27 +36,33 @@ h1, h2 {
     color: darkslategray;
 }
 
-/* Toggle Buttons */
-#length-converter-btn,
-#temp-converter-btn {
-    padding: 10px 20px;
-    margin: 10px;
-    font-size: 16px;
-    color: white;
-    background-color: teal;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    display: inline-block;
+/* Converter Toggle Buttons */
+.converter-buttons {
+    margin-bottom: 20px;
 }
 
-#length-converter-btn:hover,
-#temp-converter-btn:hover {
+.converter-buttons button {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: teal;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.converter-buttons button:hover {
     background-color: darkcyan;
 }
 
-/* Converter Form and Results Section */
+/* Hidden Class */
+.hidden {
+    display: none;
+}
+
+/* Converter Form */
 form {
     margin-bottom: 20px;
     padding: 15px;
@@ -66,17 +72,17 @@ form {
     display: inline-block;
 }
 
-#results, #history, #temp-results {
+/* Conversion Results and History Section */
+#results, #temp-results, #history, #temp-history {
     list-style: none;
     padding: 0;
+    margin: 20px auto;
     text-align: left;
     display: inline-block;
     width: 100%;
-    margin: 20px auto;
-    text-align: center;  
 }
 
-#history li, #temp-results li {
+#history li, #temp-history li {
     margin: 5px 0;
     font-size: 16px;
     display: flex;
@@ -128,14 +134,4 @@ form {
 
 .delete-btn:hover {
     background-color: darkred;
-}
-
-/* Hidden Sections (default) */
-.hidden {
-    display: none;
-}
-
-/* Active Section */
-.active {
-    display: block;
 }
