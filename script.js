@@ -19,12 +19,24 @@ function convertLength(value, unit) {
     let meters;
 
     switch (unit) {
-        case "meters": meters = value; break;
-        case "centimeters": meters = value / 100; break;
-        case "feet": meters = value / 3.28084; break;
-        case "inches": meters = value / 39.3701; break;
-        case "kilometers": meters = value / 1000; break;
-        case "miles": meters = value / 1609.34; break;
+        case "meters":
+            meters = value; 
+            break;
+        case "centimeters":
+            meters = value / 100; 
+            break;
+        case "feet":
+            meters = value / 3.28084; 
+            break;
+        case "inches":
+            meters = value / 39.3701; 
+            break;
+        case "kilometers":
+            meters = value * 1000; 
+            break;
+        case "miles":
+            meters = value * 1609.34; 
+            break;
     }
 
     return {
@@ -36,6 +48,7 @@ function convertLength(value, unit) {
         Miles: (meters / 1609.34).toFixed(2),
     };
 }
+
 
 function displayResults(conversions) {
     const resultsList = document.getElementById("results");
