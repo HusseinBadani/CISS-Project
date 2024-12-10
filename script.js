@@ -66,10 +66,10 @@ function addToHistory(length, unit, conversions) {
     const historyItem = document.createElement("li");
     historyItem.classList.add("history-item");
 
-    let formattedConversions = Object.entries(conversions)
+    const formattedConversions = Object.entries(conversions)
         .map(([unit, value]) => `${unit}: ${value}`)
         .join(", ");
-    
+
     historyItem.innerHTML = `Converted ${length} ${unit} → ${formattedConversions}`;
 
     const deleteButton = document.createElement("button");
@@ -82,6 +82,7 @@ function addToHistory(length, unit, conversions) {
     historyItem.appendChild(deleteButton);
     historyList.appendChild(historyItem);
 }
+
 
 function changeBackgroundColor(length) {
     let r = length % 256; 
