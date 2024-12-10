@@ -1,18 +1,22 @@
-// Toggle Between Converters
-document.getElementById("length-converter-btn").addEventListener("click", function () {
+// Tab Switching
+document.getElementById("length-tab").addEventListener("click", () => {
     document.getElementById("length-converter").classList.remove("hidden");
     document.getElementById("temperature-converter").classList.add("hidden");
+    document.getElementById("length-tab").classList.add("active-tab");
+    document.getElementById("temperature-tab").classList.remove("active-tab");
 });
 
-document.getElementById("temp-converter-btn").addEventListener("click", function () {
+document.getElementById("temperature-tab").addEventListener("click", () => {
     document.getElementById("temperature-converter").classList.remove("hidden");
     document.getElementById("length-converter").classList.add("hidden");
+    document.getElementById("temperature-tab").classList.add("active-tab");
+    document.getElementById("length-tab").classList.remove("active-tab");
 });
 
-// Length Converter Logic
-document.getElementById("convert-button").addEventListener("click", function () {
+// Length Conversion
+document.getElementById("convert-length").addEventListener("click", () => {
     const length = parseFloat(document.getElementById("length").value);
-    const unit = document.getElementById("unit").value;
+    const unit = document.getElementById("length-unit").value;
 
     if (isNaN(length)) {
         alert("Please enter a valid number.");
@@ -20,8 +24,8 @@ document.getElementById("convert-button").addEventListener("click", function () 
     }
 
     const conversions = convertLength(length, unit);
-    displayResults(conversions, "results");
-    addToHistory(length, unit, conversions, "history");
+    displayResults("length-results", conversions);
+    addToHistory("length-history", length, unit, conversions);
 });
 
 function convertLength(value, unit) {
@@ -46,41 +50,39 @@ function convertLength(value, unit) {
     };
 }
 
-// Temperature Converter Logic
-document.getElementById("convert-temp-button").addEventListener("click", function () {
-    const temp = parseFloat(document.getElementById("temperature").value);
-    const unit = document.getElementById("temp-unit").value;
+// Temperature Conversion
+document.getElementById("convert-temperature").addEventListener("click", () => {
+    const temperature = parseFloat(document.getElementById("temperature").value);
+    const unit = document.getElementById("temperature-unit").value;
 
-    if (isNaN(temp)) {
+    if (isNaN(temperature)) {
         alert("Please enter a valid number.");
         return;
     }
 
-    const conversions = convertTemperature(temp, unit);
-    displayResults(conversions, "temp-results");
-    addToHistory(temp, unit, conversions, "temp-history");
+    const conversions = convertTemperature(temperature, unit);
+    displayResults("temperature-results", conversions);
+    addToHistory("temperature-history", temperature, unit, conversions);
 });
 
 function convertTemperature(value, unit) {
-    let celsius;
-
-    switch (unit) {
-        case "celsius": celsius = value; break;
-        case "fahrenheit": celsius = (value - 32) * (5 / 9); break;
-        case "kelvin": celsius = value - 273.15; break;
+    if (unit === "celsius") {
+        return {
+            Celsius: value.toFixed(2),
+            Fahrenheit: ((value * 9) / 5 + 32).toFixed(2),
+        };
+    } else {
+        return {
+            Celsius: (((value - 32) * 5) / 9).toFixed(2),
+            Fahrenheit: value.toFixed(2),
+        };
     }
-
-    return {
-        Celsius: celsius.toFixed(2),
-        Fahrenheit: ((celsius * 9) / 5 + 32).toFixed(2),
-        Kelvin: (celsius + 273.15).toFixed(2),
-    };
 }
 
-// Display Results Function
-function displayResults(conversions, resultsId) {
-    const resultsList = document.getElementById(resultsId);
-    resultsList.innerHTML = "";  
+// Utility Functions
+function displayResults(resultId, conversions) {
+    const resultsList = document.getElementById(resultId);
+    resultsList.innerHTML = "";
 
     for (const [unit, value] of Object.entries(conversions)) {
         const listItem = document.createElement("li");
@@ -89,50 +91,31 @@ function displayResults(conversions, resultsId) {
     }
 }
 
-// Add to History Function
-function addToHistory(value, unit, conversions, historyId) {
+function addToHistory(historyId, input, unit, conversions) {
     const historyList = document.getElementById(historyId);
     const historyItem = document.createElement("li");
 
     const formattedConversions = Object.entries(conversions)
         .map(([key, val]) => `${key}: ${val}`)
         .join(", ");
-    historyItem.innerHTML = `Converted ${value} ${unit} → ${formattedConversions}`;
-
-    const deleteButton = document.createElement("button");
-    deleteButton.textContent = "Delete";
-    deleteButton.classList.add("delete-btn");
-    deleteButton.onclick = function () {
-        historyItem.remove(); 
-    };
-
-    historyItem.appendChild(deleteButton);
+    historyItem.textContent = `Converted ${input} ${unit} → ${formattedConversions}`;
     historyList.appendChild(historyItem);
 }
 
-// Reset Button
-document.getElementById("reset-button").addEventListener("click", function () {
-    document.getElementById("length").value = "";
-    document.getElementById("unit").value = "meters";
-    document.getElementById("results").innerHTML = "";
-    document.getElementById("history").innerHTML = "";
-
-    document.getElementById("temperature").value = "";
-    document.getElementById("temp-unit").value = "celsius";
-    document.getElementById("temp-results").innerHTML = "";
-    document.getElementById("temp-history").innerHTML = "";
-
-    document.body.style.backgroundColor = "lightgray"; 
+// Background and Reset
+document.getElementById("change-bg").addEventListener("click", () => {
+    const r = Math.floor(Math.random() * 256);
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+    document.body.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
 });
 
-// Change Background Color
-document.getElementById("change-bg").addEventListener("click", function () {
-    const randomColor = () => {
-        const r = Math.floor(Math.random() * 256);
-        const g = Math.floor(Math.random() * 256);
-        const b = Math.floor(Math.random() * 256);
-        return `rgb(${r}, ${g}, ${b})`;
-    };
-
-    document.body.style.backgroundColor = randomColor();
+document.getElementById("reset").addEventListener("click", () => {
+    document.getElementById("length").value = "";
+    document.getElementById("temperature").value = "";
+    document.getElementById("length-results").innerHTML = "";
+    document.getElementById("temperature-results").innerHTML = "";
+    document.getElementById("length-history").innerHTML = "";
+    document.getElementById("temperature-history").innerHTML = "";
+    document.body.style.backgroundColor = "lightgray";
 });
