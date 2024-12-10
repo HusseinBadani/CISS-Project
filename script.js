@@ -1,4 +1,14 @@
-// Existing Length Conversion Logic
+document.getElementById("length-converter-btn").addEventListener("click", function () {
+    document.getElementById("length-converter-section").style.display = "block";
+    document.getElementById("temp-converter-section").style.display = "none";
+});
+
+document.getElementById("temp-converter-btn").addEventListener("click", function () {
+    document.getElementById("length-converter-section").style.display = "none";
+    document.getElementById("temp-converter-section").style.display = "block";
+});
+
+// Length Converter
 document.getElementById("convert-button").addEventListener("click", function () {
     const length = parseFloat(document.getElementById("length").value);
     const unit = document.getElementById("unit").value;
@@ -47,7 +57,7 @@ function displayResults(conversions) {
     }
 }
 
-// Temperature Conversion Logic
+// Temperature Converter 
 document.getElementById("convert-temp-button").addEventListener("click", function () {
     const temperature = parseFloat(document.getElementById("temperature").value);
     const unit = document.getElementById("temp-unit").value;
@@ -64,20 +74,12 @@ document.getElementById("convert-temp-button").addEventListener("click", functio
 function convertTemperature(value, unit) {
     let celsius;
 
-    // Convert the input to Celsius first
     switch (unit) {
-        case "celsius":
-            celsius = value;
-            break;
-        case "fahrenheit":
-            celsius = (value - 32) * 5 / 9;
-            break;
-        case "kelvin":
-            celsius = value - 273.15;
-            break;
+        case "celsius": celsius = value; break;
+        case "fahrenheit": celsius = (value - 32) * 5 / 9; break;
+        case "kelvin": celsius = value - 273.15; break;
     }
 
-    // Convert from Celsius to other units
     return {
         Celsius: celsius.toFixed(2),
         Fahrenheit: ((celsius * 9 / 5) + 32).toFixed(2),
@@ -96,7 +98,6 @@ function displayTempResults(conversions) {
     }
 }
 
-// Other Features (Background Color, Reset)
 document.getElementById("change-bg").addEventListener("click", function () {
     document.body.style.backgroundColor = randomColor();
 });
