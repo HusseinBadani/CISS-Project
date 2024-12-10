@@ -19,25 +19,37 @@ document.getElementById("convert-length").addEventListener("click", () => {
     const unit = document.getElementById("length-unit").value;
 
     if (isNaN(length)) {
-        alert("Please enter a valid number.");
+        alert("Please enter a valid number for length.");
         return;
     }
 
-    const conversions = convertLength(length, unit);
-    displayResults("length-results", conversions);
-    addToHistory("length-history", length, unit, conversions);
+    const results = convertLength(length, unit);
+    displayResults("length-results", results);
+    addToHistory("length-history", length, unit, results);
 });
 
 function convertLength(value, unit) {
     let meters;
 
     switch (unit) {
-        case "meters": meters = value; break;
-        case "centimeters": meters = value / 100; break;
-        case "feet": meters = value / 3.28084; break;
-        case "inches": meters = value / 39.3701; break;
-        case "kilometers": meters = value * 1000; break;
-        case "miles": meters = value * 1609.34; break;
+        case "meters":
+            meters = value;
+            break;
+        case "centimeters":
+            meters = value / 100;
+            break;
+        case "feet":
+            meters = value / 3.28084;
+            break;
+        case "inches":
+            meters = value / 39.3701;
+            break;
+        case "kilometers":
+            meters = value * 1000;
+            break;
+        case "miles":
+            meters = value * 1609.34;
+            break;
     }
 
     return {
@@ -56,13 +68,13 @@ document.getElementById("convert-temperature").addEventListener("click", () => {
     const unit = document.getElementById("temperature-unit").value;
 
     if (isNaN(temperature)) {
-        alert("Please enter a valid number.");
+        alert("Please enter a valid number for temperature.");
         return;
     }
 
-    const conversions = convertTemperature(temperature, unit);
-    displayResults("temperature-results", conversions);
-    addToHistory("temperature-history", temperature, unit, conversions);
+    const results = convertTemperature(temperature, unit);
+    displayResults("temperature-results", results);
+    addToHistory("temperature-history", temperature, unit, results);
 });
 
 function convertTemperature(value, unit) {
@@ -80,29 +92,29 @@ function convertTemperature(value, unit) {
 }
 
 // Utility Functions
-function displayResults(resultId, conversions) {
-    const resultsList = document.getElementById(resultId);
-    resultsList.innerHTML = "";
+function displayResults(resultId, results) {
+    const resultContainer = document.getElementById(resultId);
+    resultContainer.innerHTML = "";
 
-    for (const [unit, value] of Object.entries(conversions)) {
+    for (const [unit, value] of Object.entries(results)) {
         const listItem = document.createElement("li");
         listItem.textContent = `${unit}: ${value}`;
-        resultsList.appendChild(listItem);
+        resultContainer.appendChild(listItem);
     }
 }
 
-function addToHistory(historyId, input, unit, conversions) {
-    const historyList = document.getElementById(historyId);
+function addToHistory(historyId, input, unit, results) {
+    const historyContainer = document.getElementById(historyId);
     const historyItem = document.createElement("li");
 
-    const formattedConversions = Object.entries(conversions)
-        .map(([key, val]) => `${key}: ${val}`)
+    const formattedResults = Object.entries(results)
+        .map(([key, value]) => `${key}: ${value}`)
         .join(", ");
-    historyItem.textContent = `Converted ${input} ${unit} → ${formattedConversions}`;
-    historyList.appendChild(historyItem);
+    historyItem.textContent = `Converted ${input} ${unit} → ${formattedResults}`;
+    historyContainer.appendChild(historyItem);
 }
 
-// Background and Reset
+// Background and Reset Buttons
 document.getElementById("change-bg").addEventListener("click", () => {
     const r = Math.floor(Math.random() * 256);
     const g = Math.floor(Math.random() * 256);
