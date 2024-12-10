@@ -109,3 +109,30 @@ function addToHistory(value, unit, conversions, historyId) {
     historyItem.appendChild(deleteButton);
     historyList.appendChild(historyItem);
 }
+
+// Reset Button
+document.getElementById("reset-button").addEventListener("click", function () {
+    document.getElementById("length").value = "";
+    document.getElementById("unit").value = "meters";
+    document.getElementById("results").innerHTML = "";
+    document.getElementById("history").innerHTML = "";
+
+    document.getElementById("temperature").value = "";
+    document.getElementById("temp-unit").value = "celsius";
+    document.getElementById("temp-results").innerHTML = "";
+    document.getElementById("temp-history").innerHTML = "";
+
+    document.body.style.backgroundColor = "lightgray"; 
+});
+
+// Change Background Color
+document.getElementById("change-bg").addEventListener("click", function () {
+    const randomColor = () => {
+        const r = Math.floor(Math.random() * 256);
+        const g = Math.floor(Math.random() * 256);
+        const b = Math.floor(Math.random() * 256);
+        return `rgb(${r}, ${g}, ${b})`;
+    };
+
+    document.body.style.backgroundColor = randomColor();
+});
