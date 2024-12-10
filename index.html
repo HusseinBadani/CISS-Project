@@ -3,23 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Length & Temperature Converter</title>
+    <title>Enhanced Converter</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
         <h1>Hussein's Final Project</h1>
-        <p>CISS100 - Length & Temperature Converter</p>
+        <p>CISS100 - Multi-Converter</p>
     </header>
     <main>
+        <div class="converter-buttons">
+            <button id="length-converter-btn">Length Converter</button>
+            <button id="temp-converter-btn">Temperature Converter</button>
+        </div>
 
-        <h2>Select a Converter:</h2>
-        <button id="length-converter-btn">Length Converter</button>
-        <button id="temp-converter-btn">Temperature Converter</button>
-
-        <section id="length-converter-section" style="display: none;">
+        <div id="length-converter">
             <h1>Length Converter</h1>
-            <form id="converter-form">
+            <form>
                 <label for="length">Enter Length:</label>
                 <input type="number" step="any" id="length" name="length" required>
                 <label for="unit">Select Unit:</label>
@@ -37,11 +37,11 @@
             <ul id="results"></ul>
             <h2>Conversion History:</h2>
             <ul id="history"></ul>
-        </section>
+        </div>
 
-        <section id="temp-converter-section" style="display: none;">
+        <div id="temperature-converter" class="hidden">
             <h1>Temperature Converter</h1>
-            <form id="temperature-form">
+            <form>
                 <label for="temperature">Enter Temperature:</label>
                 <input type="number" step="any" id="temperature" name="temperature" required>
                 <label for="temp-unit">Select Unit:</label>
@@ -52,14 +52,11 @@
                 </select>
                 <button type="button" id="convert-temp-button">Convert</button>
             </form>
-            <h2>Temperature Conversion Results:</h2>
+            <h2>Conversion Results:</h2>
             <ul id="temp-results"></ul>
-        </section>
-
-        <h2>Change Background Color:</h2>
-        <button id="change-bg">Change Background Color</button>
-
-        <button id="reset-button">Reset</button>
+            <h2>Conversion History:</h2>
+            <ul id="temp-history"></ul>
+        </div>
     </main>
     <script src="script.js"></script>
 </body>
