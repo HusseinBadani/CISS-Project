@@ -36,7 +36,7 @@ h1, h2 {
     color: darkslategray;
 }
 
-/* Length and Temperature Converter Form */
+/* Converter Forms */
 form {
     margin-bottom: 20px;
     padding: 15px;
@@ -50,30 +50,18 @@ form {
 #results, #history, #temp-results, #temp-history {
     list-style: none;
     padding: 0;
-    margin: 20px auto; /* Centers the results and history */
-    text-align: center;
-    max-width: 500px; /* Optional: limit width for better readability */
-    background-color: white;
-    padding: 10px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    text-align: center;  
+    display: inline-block;
+    width: 100%;
 }
 
-#results li, #history li, #temp-results li, #temp-history li {
+#history li, #temp-history li {
     margin: 5px 0;
     font-size: 16px;
     display: flex;
-    justify-content: space-between; /* Neatly aligns content if needed */
+    justify-content: space-between;
     align-items: center;
-}
-
-/* Align conversion actions */
-button {
-    display: block;
-    margin: 10px auto; /* Centers the buttons */
-    padding: 10px;
-    font-size: 16px;
-    border-radius: 5px;
 }
 
 /* Change Background Color Button */
