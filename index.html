@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enhanced Length and Temperature Converter</title>
+    <title>Length & Temperature Converter</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -12,43 +12,49 @@
         <p>CISS100 - Length & Temperature Converter</p>
     </header>
     <main>
-        <h1>Length Converter</h1>
-        <form id="converter-form">
-            <label for="length">Enter Length:</label>
-            <input type="number" step="any" id="length" name="length" required>
-            <label for="unit">Select Unit:</label>
-            <select id="unit" name="unit">
-                <option value="meters">Meters</option>
-                <option value="centimeters">Centimeters</option>
-                <option value="feet">Feet</option>
-                <option value="inches">Inches</option>
-                <option value="kilometers">Kilometers</option>
-                <option value="miles">Miles</option>
-            </select>
-            <button type="button" id="convert-button">Convert</button>
-        </form>
 
-        <h2>Conversion Results:</h2>
-        <ul id="results"></ul>
+        <h2>Select a Converter:</h2>
+        <button id="length-converter-btn">Length Converter</button>
+        <button id="temp-converter-btn">Temperature Converter</button>
 
-        <h2>Conversion History:</h2>
-        <ul id="history"></ul>
+        <section id="length-converter-section" style="display: none;">
+            <h1>Length Converter</h1>
+            <form id="converter-form">
+                <label for="length">Enter Length:</label>
+                <input type="number" step="any" id="length" name="length" required>
+                <label for="unit">Select Unit:</label>
+                <select id="unit" name="unit">
+                    <option value="meters">Meters</option>
+                    <option value="centimeters">Centimeters</option>
+                    <option value="feet">Feet</option>
+                    <option value="inches">Inches</option>
+                    <option value="kilometers">Kilometers</option>
+                    <option value="miles">Miles</option>
+                </select>
+                <button type="button" id="convert-button">Convert</button>
+            </form>
+            <h2>Conversion Results:</h2>
+            <ul id="results"></ul>
+            <h2>Conversion History:</h2>
+            <ul id="history"></ul>
+        </section>
 
-        <h1>Temperature Converter</h1>
-        <form id="temperature-form">
-            <label for="temperature">Enter Temperature:</label>
-            <input type="number" step="any" id="temperature" name="temperature" required>
-            <label for="temp-unit">Select Unit:</label>
-            <select id="temp-unit" name="temp-unit">
-                <option value="celsius">Celsius</option>
-                <option value="fahrenheit">Fahrenheit</option>
-                <option value="kelvin">Kelvin</option>
-            </select>
-            <button type="button" id="convert-temp-button">Convert</button>
-        </form>
-
-        <h2>Temperature Conversion Results:</h2>
-        <ul id="temp-results"></ul>
+        <section id="temp-converter-section" style="display: none;">
+            <h1>Temperature Converter</h1>
+            <form id="temperature-form">
+                <label for="temperature">Enter Temperature:</label>
+                <input type="number" step="any" id="temperature" name="temperature" required>
+                <label for="temp-unit">Select Unit:</label>
+                <select id="temp-unit" name="temp-unit">
+                    <option value="celsius">Celsius</option>
+                    <option value="fahrenheit">Fahrenheit</option>
+                    <option value="kelvin">Kelvin</option>
+                </select>
+                <button type="button" id="convert-temp-button">Convert</button>
+            </form>
+            <h2>Temperature Conversion Results:</h2>
+            <ul id="temp-results"></ul>
+        </section>
 
         <h2>Change Background Color:</h2>
         <button id="change-bg">Change Background Color</button>
