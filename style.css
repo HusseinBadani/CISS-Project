@@ -1,3 +1,4 @@
+/* General Styling */
 body {
     font-family: Arial, sans-serif;
     background-color: lightgray;
@@ -7,6 +8,7 @@ body {
     transition: background-color 0.5s;
 }
 
+/* Header Section */
 header {
     background-color: grey;
     color: white;
@@ -24,6 +26,7 @@ header p {
     margin: 5px 0;
 }
 
+/* Main Section */
 main {
     padding: 20px;
     text-align: center;
@@ -33,6 +36,7 @@ h1, h2 {
     color: darkslategray;
 }
 
+/* Toggle Buttons */
 #length-converter-btn,
 #temp-converter-btn {
     padding: 10px 20px;
@@ -44,6 +48,7 @@ h1, h2 {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
+    display: inline-block;
 }
 
 #length-converter-btn:hover,
@@ -51,28 +56,27 @@ h1, h2 {
     background-color: darkcyan;
 }
 
-section {
-    margin-top: 20px;
-    padding: 20px;
+/* Converter Form and Results Section */
+form {
+    margin-bottom: 20px;
+    padding: 15px;
     background: white;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     display: inline-block;
-    width: 90%;
-    max-width: 600px;
 }
 
-#results,
-#history,
-#temp-results {
+#results, #history, #temp-results {
     list-style: none;
     padding: 0;
+    text-align: left;
+    display: inline-block;
+    width: 100%;
     margin: 20px auto;
-    text-align: center;
+    text-align: center;  
 }
 
-#history li,
-#temp-results li {
+#history li, #temp-results li {
     margin: 5px 0;
     font-size: 16px;
     display: flex;
@@ -80,30 +84,30 @@ section {
     align-items: center;
 }
 
-button {
-    padding: 10px 20px;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
+/* Change Background Color Button */
 #change-bg {
+    margin-top: 20px;
+    padding: 10px;
+    font-size: 18px;
     background-color: teal;
     color: white;
-    margin: 20px;
-    transition: background-color 0.3s;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 20px;
 }
 
 #change-bg:hover {
     background-color: darkcyan;
 }
 
+/* Reset Button */
 #reset-button {
+    padding: 10px;
     background-color: lightgrey;
     color: darkslategray;
-    margin: 20px;
-    transition: background-color 0.3s;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
 }
 
 #reset-button:hover {
@@ -111,6 +115,7 @@ button {
     color: white;
 }
 
+/* Delete Button */
 .delete-btn {
     background-color: red;
     color: white;
@@ -125,20 +130,12 @@ button {
     background-color: darkred;
 }
 
-@media (max-width: 768px) {
-    section {
-        width: 100%;
-        box-sizing: border-box;
-    }
+/* Hidden Sections (default) */
+.hidden {
+    display: none;
+}
 
-    button {
-        width: 100%;
-        margin-bottom: 10px;
-    }
-
-    #length-converter-btn,
-    #temp-converter-btn {
-        font-size: 14px;
-        padding: 8px 16px;
-    }
+/* Active Section */
+.active {
+    display: block;
 }
