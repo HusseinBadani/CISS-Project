@@ -63,12 +63,20 @@ function displayResults(conversions) {
 
 function addToHistory(length, unit, conversions) {
     const historyList = document.getElementById("history");
+    if (!historyList) {
+        console.error("The history container (with ID 'history') is missing in the HTML.");
+        return;
+    }
+
     const historyItem = document.createElement("li");
     historyItem.classList.add("history-item");
+
+    console.log("Conversions object:", conversions);
 
     const formattedConversions = Object.entries(conversions)
         .map(([unit, value]) => `${unit}: ${value}`)
         .join(", ");
+    console.log("Formatted conversions string:", formattedConversions);
 
     historyItem.innerHTML = `Converted ${length} ${unit} → ${formattedConversions}`;
 
@@ -82,6 +90,7 @@ function addToHistory(length, unit, conversions) {
     historyItem.appendChild(deleteButton);
     historyList.appendChild(historyItem);
 }
+
 
 
 function changeBackgroundColor(length) {
