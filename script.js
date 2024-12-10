@@ -82,11 +82,20 @@ function convertTemperature(value, unit) {
         return {
             Celsius: value.toFixed(2),
             Fahrenheit: ((value * 9) / 5 + 32).toFixed(2),
+            Kelvin: (value + 273.15).toFixed(2),
+        };
+    } else if (unit === "fahrenheit") {
+        const celsius = ((value - 32) * 5) / 9;
+        return {
+            Celsius: celsius.toFixed(2),
+            Fahrenheit: value.toFixed(2),
+            Kelvin: (celsius + 273.15).toFixed(2),
         };
     } else {
         return {
-            Celsius: (((value - 32) * 5) / 9).toFixed(2),
-            Fahrenheit: value.toFixed(2),
+            Celsius: (value - 273.15).toFixed(2),
+            Fahrenheit: (((value - 273.15) * 9) / 5 + 32).toFixed(2),
+            Kelvin: value.toFixed(2),
         };
     }
 }
@@ -111,6 +120,16 @@ function addToHistory(historyId, input, unit, results) {
         .map(([key, value]) => `${key}: ${value}`)
         .join(", ");
     historyItem.textContent = `Converted ${input} ${unit} → ${formattedResults}`;
+
+    // Add Delete Button
+    const deleteButton = document.createElement("button");
+    deleteButton.textContent = "Delete";
+    deleteButton.style.marginLeft = "10px";
+    deleteButton.addEventListener("click", () => {
+        historyContainer.removeChild(historyItem);
+    });
+
+    historyItem.appendChild(deleteButton);
     historyContainer.appendChild(historyItem);
 }
 
