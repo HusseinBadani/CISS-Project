@@ -66,8 +66,12 @@ function addToHistory(length, unit, conversions) {
     const historyItem = document.createElement("li");
     historyItem.classList.add("history-item");
 
-    historyItem.innerHTML = `Converted ${length} ${unit} → ${JSON.stringify(conversions)}`;
+    let formattedConversions = Object.entries(conversions)
+        .map(([unit, value]) => `${unit}: ${value}`)
+        .join(", ");
     
+    historyItem.innerHTML = `Converted ${length} ${unit} → ${formattedConversions}`;
+
     const deleteButton = document.createElement("button");
     deleteButton.textContent = "Delete";
     deleteButton.classList.add("delete-btn");
