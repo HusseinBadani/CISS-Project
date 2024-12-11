@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A simple unit converter for length and temperature">
     <title>Converter</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -22,8 +23,8 @@
             <form id="length-form">
                 <label for="length">Enter Length:</label>
                 <input type="number" id="length" name="length" step="any" required>
-                <label for="unit">Select Unit:</label>
-                <select id="length-unit" name="unit">
+                <label for="length-unit">Select Unit:</label>
+                <select id="length-unit" name="length-unit">
                     <option value="meters">Meters</option>
                     <option value="centimeters">Centimeters</option>
                     <option value="feet">Feet</option>
@@ -45,8 +46,8 @@
             <form id="temperature-form">
                 <label for="temperature">Enter Temperature:</label>
                 <input type="number" id="temperature" name="temperature" step="any" required>
-                <label for="temp-unit">Select Unit:</label>
-                <select id="temperature-unit" name="unit">
+                <label for="temperature-unit">Select Unit:</label>
+                <select id="temperature-unit" name="temperature-unit">
                     <option value="celsius">Celsius</option>
                     <option value="fahrenheit">Fahrenheit</option>
                     <option value="kelvin">Kelvin</option>
