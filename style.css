@@ -1,4 +1,4 @@
-/* General Styling */
+ /* General Styling */
 body {
     font-family: Arial, sans-serif;
     background-color: lightgray;
@@ -108,4 +108,18 @@ ul li {
 #reset:hover {
     background-color: darkslategray;
     color: white;
+}
+
+/* History Items with Delete Button Alignment */
+ul li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 400px; /* Adjust width as needed */
+    margin: 5px auto;
+}
+
+ul li button {
+    margin-left: 10px;
 }
