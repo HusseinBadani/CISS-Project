@@ -6,28 +6,39 @@ body {
     padding: 0;
     text-align: center;
     transition: background-color 0.5s;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    display: flex; /* Enable flexbox */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100vh; /* Full viewport height */
 }
 
 header {
     background-color: gray;
     color: white;
     padding: 15px;
+    margin-bottom: 20px;
+    width: 100%; /* Full width header */
 }
 
-header h1 {
+header h1, header h2 {
     margin: 0;
 }
 
 main {
-    margin: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 600px;
+    padding: 20px;
+    text-align: center;
 }
 
+/* Tabs */
 #converter-tabs {
     margin: 20px 0;
+    display: flex;
+    justify-content: space-around;
 }
 
 #converter-tabs button {
@@ -53,6 +64,7 @@ main {
     display: none;
 }
 
+/* Forms */
 form {
     margin-bottom: 20px;
 }
@@ -66,26 +78,20 @@ form select {
     margin-right: 10px;
 }
 
+/* Results and History */
 ul {
     list-style: none;
     padding: 0;
     text-align: left;
-    display: block;
     margin: 0 auto;
     width: 80%;
 }
 
 ul li {
-    display: flex;
-    justify-content: space-between;
-    margin: 5px auto;
-    word-wrap: break-word;
+    margin: 5px 0;
 }
 
-ul li button {
-    margin-left: auto;
-}
-
+/* Actions */
 #actions {
     margin: 20px 0;
 }
