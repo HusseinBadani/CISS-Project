@@ -5,108 +5,107 @@ body {
     color: darkslategray;
     margin: 0;
     padding: 0;
+    text-align: center;
     transition: background-color 0.5s;
 }
 
-/* Header Section */
 header {
-    background-color: grey;
+    background-color: gray;
     color: white;
     padding: 15px;
-    text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 header h1 {
     margin: 0;
-    font-size: 24px;
 }
 
-header p {
-    margin: 5px 0;
-}
-
-/* Main Section */
 main {
-    padding: 20px;
-    text-align: center;
+    margin: 20px;
 }
 
-h1, h2 {
-    color: darkslategray;
+/* Tabs */
+#converter-tabs {
+    margin: 20px 0;
 }
 
-/* Length Converter Form */
+#converter-tabs button {
+    padding: 10px 20px;
+    margin: 0 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: lightgray;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#converter-tabs button.active-tab {
+    background-color: teal;
+    color: white;
+}
+
+.converter-section {
+    margin: 20px 0;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Forms */
 form {
     margin-bottom: 20px;
-    padding: 15px;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    display: inline-block;
 }
 
-/* Conversion Results and History Section */
-#results, #history {
+form label {
+    margin-right: 10px;
+}
+
+form input,
+form select {
+    margin-right: 10px;
+}
+
+/* Results and History */
+ul {
     list-style: none;
     padding: 0;
     text-align: left;
     display: inline-block;
-    width: 100%;
-    margin: 20px auto;
-    text-align: center;  
+    margin: 0 auto;
 }
 
-#history li {
+ul li {
     margin: 5px 0;
-    font-size: 16px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
 }
 
-/* Change Background Color Button */
-#change-bg {
-    margin-top: 20px;
-    padding: 10px;
-    font-size: 18px;
-    background-color: teal;
-    color: white;
+/* Actions */
+#actions {
+    margin: 20px 0;
+}
+
+#actions button {
+    padding: 10px 20px;
+    margin: 5px;
     border: none;
     border-radius: 5px;
-    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+#change-bg {
+    background-color: teal;
+    color: white;
 }
 
 #change-bg:hover {
     background-color: darkcyan;
 }
 
-/* Reset Button */
-#reset-button {
-    padding: 10px;
-    background-color: lightgrey;
+#reset {
+    background-color: lightgray;
     color: darkslategray;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
 }
 
-#reset-button:hover {
+#reset:hover {
     background-color: darkslategray;
     color: white;
-}
-
-/* Delete Button */
-.delete-btn {
-    background-color: red;
-    color: white;
-    font-size: 12px;
-    border: none;
-    cursor: pointer;
-    padding: 5px;
-    border-radius: 3px;
-}
-
-.delete-btn:hover {
-    background-color: darkred;
 }
