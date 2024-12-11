@@ -74,7 +74,16 @@ ul {
 }
 
 ul li {
-    margin: 5px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 400px; /* Adjust width as needed */
+    margin: 5px auto;
+}
+
+ul li button {
+    margin-left: auto; /* This pushes the delete button to the right */
 }
 
 /* Actions */
@@ -107,18 +116,4 @@ ul li {
 #reset:hover {
     background-color: darkslategray;
     color: white;
-}
-
-/* History Items with Delete Button Alignment */
-ul li {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    max-width: 400px; /* Adjust width as needed */
-    margin: 5px auto;
-}
-
-ul li button {
-    margin-left: 10px;
 }
