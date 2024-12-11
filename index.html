@@ -3,67 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unit Converter</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Hussein's Final Project</title>
+    <link rel="stylesheet" href="style.css"> <!-- Link to CSS -->
 </head>
 <body>
     <header>
-        <h1>Unit Converter</h1>
-        <p>CISS100 - Final Project</p>
+        <h1>Hussein's Final Project</h1>
+        <p>CISS100 - Length Converter</p>
     </header>
     <main>
-        <div id="converter-tabs">
-            <button id="length-tab" class="active-tab">Length Converter</button>
-            <button id="temperature-tab">Temperature Converter</button>
-        </div>
+        <h1>Length Converter</h1>
+        <form id="converter-form">
+            <label for="length">Enter Length:</label>
+            <input type="number" step="any" id="length" name="length" required>
+            <label for="unit">Select Unit:</label>
+            <select id="unit" name="unit">
+                <option value="meters">Meters</option>
+                <option value="centimeters">Centimeters</option>
+                <option value="feet">Feet</option>
+                <option value="inches">Inches</option>
+                <option value="kilometers">Kilometers</option>
+                <option value="miles">Miles</option>
+            </select>
+            <button type="button" id="convert-button">Convert</button>
+        </form>
 
-        <!-- Length Converter -->
-        <section id="length-converter" class="converter-section">
-            <form>
-                <label for="length">Enter Length:</label>
-                <input type="number" id="length" placeholder="e.g., 100">
-                <label for="unit">Select Unit:</label>
-                <select id="length-unit">
-                    <option value="meters">Meters</option>
-                    <option value="centimeters">Centimeters</option>
-                    <option value="feet">Feet</option>
-                    <option value="inches">Inches</option>
-                    <option value="kilometers">Kilometers</option>
-                    <option value="miles">Miles</option>
-                </select>
-                <button type="button" id="convert-length">Convert</button>
-            </form>
-            <h2>Conversion Results:</h2>
-            <ul id="length-results"></ul>
-            <h2>Conversion History:</h2>
-            <ul id="length-history"></ul>
-        </section>
+        <h2>Conversion Results:</h2>
+        <ul id="results"></ul>
 
-        <!-- Temperature Converter -->
-        <section id="temperature-converter" class="converter-section hidden">
-            <form>
-                <label for="temperature">Enter Temperature:</label>
-                <input type="number" id="temperature" placeholder="e.g., 32">
-                <label for="temperature-unit">Select Unit:</label>
-                <select id="temperature-unit">
-                    <option value="celsius">Celsius</option>
-                    <option value="fahrenheit">Fahrenheit</option>
-                </select>
-                <button type="button" id="convert-temperature">Convert</button>
-            </form>
-            <h2>Conversion Results:</h2>
-            <ul id="temperature-results"></ul>
-            <h2>Conversion History:</h2>
-            <ul id="temperature-history"></ul>
-        </section>
+        <h2>Conversion History:</h2>
+        <ul id="history"></ul>
 
-        <!-- Actions -->
-        <section id="actions">
-            <h2>Actions:</h2>
-            <button id="change-bg">Change Background Color</button>
-            <button id="reset">Reset</button>
-        </section>
+        <h2>Change Background Color:</h2>
+        <button id="change-bg">Change Background Color</button>
+
+        <button id="reset-button">Reset</button>
     </main>
-    <script src="script.js"></script>
+    <script src="script.js"></script> <!-- Link to JavaScript -->
 </body>
 </html>
