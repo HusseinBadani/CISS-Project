@@ -6,10 +6,10 @@ body {
     padding: 0;
     text-align: center;
     transition: background-color 0.5s;
-    display: flex; /* Enable flexbox */
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
-    height: 100vh; /* Full viewport height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
 header {
@@ -26,7 +26,6 @@ main {
     margin: 20px;
 }
 
-/* Tabs */
 #converter-tabs {
     margin: 20px 0;
 }
@@ -54,7 +53,6 @@ main {
     display: none;
 }
 
-/* Forms */
 form {
     margin-bottom: 20px;
 }
@@ -68,32 +66,26 @@ form select {
     margin-right: 10px;
 }
 
-/* Results and History */
 ul {
     list-style: none;
     padding: 0;
     text-align: left;
     display: block;
     margin: 0 auto;
-    width: 80%; /* Adjusted width to make history section wider */
+    width: 80%;
 }
 
 ul li {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    max-width: none; /* Removed max-width for flexibility */
     margin: 5px auto;
-    word-wrap: break-word; /* Allow text to wrap if it's too long */
-    overflow-wrap: break-word; /* Ensures long text breaks into multiple lines */
+    word-wrap: break-word;
 }
 
 ul li button {
-    margin-left: auto; /* Keeps the delete button at the far right */
+    margin-left: auto;
 }
 
-/* Actions */
 #actions {
     margin: 20px 0;
 }
@@ -123,20 +115,4 @@ ul li button {
 #reset:hover {
     background-color: darkslategray;
     color: white;
-}
-
-/* History Items with Delete Button Alignment */
-ul li {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    max-width: none;
-    margin: 5px auto;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-}
-
-ul li button {
-    margin-left: auto;
 }
