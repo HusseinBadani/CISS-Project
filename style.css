@@ -1,4 +1,4 @@
- /* General Styling */
+/* General Styling */
 body {
     font-family: Arial, sans-serif;
     background-color: lightgray;
@@ -75,7 +75,35 @@ ul {
 }
 
 ul li {
-    margin: 5px 0;
+    display: flex;
+    justify-content: space-between; /* Aligns delete button to the far right */
+    align-items: center;
+    width: 100%;
+    max-width: 400px; /* Adjust width for history items */
+    margin: 5px auto;
+    padding: 5px;
+    background-color: white; /* Optional for visibility */
+    border-radius: 5px; /* Optional for styling */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional for a subtle shadow */
+}
+
+ul li span {
+    flex-grow: 1; /* Ensures the text spans the available space */
+    text-align: center;
+}
+
+ul li button {
+    margin-left: auto; /* Ensures the button aligns to the far right */
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+ul li button:hover {
+    background-color: darkred;
 }
 
 /* Actions */
@@ -108,18 +136,4 @@ ul li {
 #reset:hover {
     background-color: darkslategray;
     color: white;
-}
-
-/* History Items with Delete Button Alignment */
-ul li {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    max-width: 400px; /* Adjust width as needed */
-    margin: 5px auto;
-}
-
-ul li button {
-    margin-left: 10px;
 }
