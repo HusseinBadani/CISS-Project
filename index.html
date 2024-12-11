@@ -4,84 +4,87 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="A simple unit converter for length, temperature, and weight">
-    <title>Converter</title>
+    <title>Hussein's Final Project</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <h1>Converter</h1>
+        <h1>Hussein's Final Project</h1>
+        <h2>CISS100</h2>
     </header>
     <main>
-        <div id="converter-tabs">
-            <button class="active-tab" data-target="length-converter">Length Converter</button>
-            <button data-target="temperature-converter">Temperature Converter</button>
-            <button data-target="weight-converter">Weight Converter</button>
+        <div id="converter">
+            <div id="converter-tabs">
+                <button class="active-tab" data-target="length-converter">Length Converter</button>
+                <button data-target="temperature-converter">Temperature Converter</button>
+                <button data-target="weight-converter">Weight Converter</button>
+            </div>
+
+            <!-- Length Converter -->
+            <section id="length-converter" class="converter-section">
+                <h3>Length Converter</h3>
+                <form id="length-form">
+                    <label for="length">Enter Length:</label>
+                    <input type="number" id="length" name="length" step="any" required>
+                    <label for="length-unit">Select Unit:</label>
+                    <select id="length-unit" name="length-unit">
+                        <option value="meters">Meters</option>
+                        <option value="centimeters">Centimeters</option>
+                        <option value="feet">Feet</option>
+                        <option value="inches">Inches</option>
+                        <option value="kilometers">Kilometers</option>
+                        <option value="miles">Miles</option>
+                    </select>
+                    <button type="button" id="length-convert">Convert</button>
+                </form>
+                <h4>Conversion Results:</h4>
+                <ul id="length-results"></ul>
+                <h4>History:</h4>
+                <ul id="length-history"></ul>
+            </section>
+
+            <!-- Temperature Converter -->
+            <section id="temperature-converter" class="converter-section hidden">
+                <h3>Temperature Converter</h3>
+                <form id="temperature-form">
+                    <label for="temperature">Enter Temperature:</label>
+                    <input type="number" id="temperature" name="temperature" step="any" required>
+                    <label for="temperature-unit">Select Unit:</label>
+                    <select id="temperature-unit" name="temperature-unit">
+                        <option value="celsius">Celsius</option>
+                        <option value="fahrenheit">Fahrenheit</option>
+                        <option value="kelvin">Kelvin</option>
+                    </select>
+                    <button type="button" id="temperature-convert">Convert</button>
+                </form>
+                <h4>Conversion Results:</h4>
+                <ul id="temperature-results"></ul>
+                <h4>History:</h4>
+                <ul id="temperature-history"></ul>
+            </section>
+
+            <!-- Weight Converter -->
+            <section id="weight-converter" class="converter-section hidden">
+                <h3>Weight Converter</h3>
+                <form id="weight-form">
+                    <label for="weight">Enter Weight:</label>
+                    <input type="number" id="weight" name="weight" step="any" required>
+                    <label for="weight-unit">Select Unit:</label>
+                    <select id="weight-unit" name="weight-unit">
+                        <option value="kilograms">Kilograms</option>
+                        <option value="grams">Grams</option>
+                        <option value="pounds">Pounds</option>
+                        <option value="ounces">Ounces</option>
+                        <option value="tons">Tons</option>
+                    </select>
+                    <button type="button" id="weight-convert">Convert</button>
+                </form>
+                <h4>Conversion Results:</h4>
+                <ul id="weight-results"></ul>
+                <h4>History:</h4>
+                <ul id="weight-history"></ul>
+            </section>
         </div>
-
-        <!-- Length Converter -->
-        <section id="length-converter" class="converter-section">
-            <h2>Length Converter</h2>
-            <form id="length-form">
-                <label for="length">Enter Length:</label>
-                <input type="number" id="length" name="length" step="any" required>
-                <label for="length-unit">Select Unit:</label>
-                <select id="length-unit" name="length-unit">
-                    <option value="meters">Meters</option>
-                    <option value="centimeters">Centimeters</option>
-                    <option value="feet">Feet</option>
-                    <option value="inches">Inches</option>
-                    <option value="kilometers">Kilometers</option>
-                    <option value="miles">Miles</option>
-                </select>
-                <button type="button" id="length-convert">Convert</button>
-            </form>
-            <h3>Conversion Results:</h3>
-            <ul id="length-results"></ul>
-            <h3>History:</h3>
-            <ul id="length-history"></ul>
-        </section>
-
-        <!-- Temperature Converter -->
-        <section id="temperature-converter" class="converter-section hidden">
-            <h2>Temperature Converter</h2>
-            <form id="temperature-form">
-                <label for="temperature">Enter Temperature:</label>
-                <input type="number" id="temperature" name="temperature" step="any" required>
-                <label for="temperature-unit">Select Unit:</label>
-                <select id="temperature-unit" name="temperature-unit">
-                    <option value="celsius">Celsius</option>
-                    <option value="fahrenheit">Fahrenheit</option>
-                    <option value="kelvin">Kelvin</option>
-                </select>
-                <button type="button" id="temperature-convert">Convert</button>
-            </form>
-            <h3>Conversion Results:</h3>
-            <ul id="temperature-results"></ul>
-            <h3>History:</h3>
-            <ul id="temperature-history"></ul>
-        </section>
-
-        <!-- Weight Converter -->
-        <section id="weight-converter" class="converter-section hidden">
-            <h2>Weight Converter</h2>
-            <form id="weight-form">
-                <label for="weight">Enter Weight:</label>
-                <input type="number" id="weight" name="weight" step="any" required>
-                <label for="weight-unit">Select Unit:</label>
-                <select id="weight-unit" name="weight-unit">
-                    <option value="kilograms">Kilograms</option>
-                    <option value="pounds">Pounds</option>
-                    <option value="grams">Grams</option>
-                    <option value="ounces">Ounces</option>
-                    <option value="stones">Stones</option>
-                </select>
-                <button type="button" id="weight-convert">Convert</button>
-            </form>
-            <h3>Conversion Results:</h3>
-            <ul id="weight-results"></ul>
-            <h3>History:</h3>
-            <ul id="weight-history"></ul>
-        </section>
 
         <div id="actions">
             <button id="change-bg">Change Background</button>
