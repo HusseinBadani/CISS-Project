@@ -6,6 +6,10 @@ body {
     padding: 0;
     text-align: center;
     transition: background-color 0.5s;
+    display: flex; /* Enable flexbox */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100vh; /* Full viewport height */
 }
 
 header {
