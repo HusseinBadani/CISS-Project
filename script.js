@@ -98,7 +98,11 @@ function displayResults(conversions, resultId) {
 function addToHistory(input, unit, conversions, historyId) {
     const historyList = document.getElementById(historyId);
     const historyItem = document.createElement("li");
-    historyItem.textContent = `Converted ${input} ${unit} → ${JSON.stringify(conversions)}`;
+    
+    // Display conversions without quotes and braces
+    const conversionText = Object.entries(conversions).map(([unit, value]) => `${unit}: ${value}`).join(", ");
+    historyItem.textContent = `Converted ${input} ${unit} → ${conversionText}`;
+    
     const deleteBtn = document.createElement("button");
     deleteBtn.textContent = "Delete";
     deleteBtn.addEventListener("click", () => historyItem.remove());
