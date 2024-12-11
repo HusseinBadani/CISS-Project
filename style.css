@@ -1,3 +1,4 @@
+/* General Styles */
 body {
     font-family: Arial, sans-serif;
     background-color: lightgray;
@@ -5,45 +6,52 @@ body {
     margin: 0;
     padding: 0;
     text-align: center;
-    transition: background-color 0.5s;
-    display: flex; /* Enable flexbox */
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center horizontally */
     height: 100vh; /* Full viewport height */
+    transition: background-color 0.5s;
 }
 
+/* Header Styles */
 header {
-    background-color: gray;
-    color: white;
-    padding: 15px;
-    margin-bottom: 20px;
-    width: 100%; /* Full width header */
-}
-
-header h1, header h2 {
-    margin: 0;
-}
-
-main {
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    width: 90%;
-    max-width: 600px;
-    padding: 20px;
+    margin-top: 20px;
+    margin-bottom: 40px; /* Add space between title and converters */
     text-align: center;
 }
 
-/* Tabs */
+header h1 {
+    margin: 0;
+    font-size: 2rem;
+    color: teal;
+}
+
+header h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: darkslategray;
+}
+
+/* Converter Container */
+#converter {
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    width: 80%;
+    max-width: 600px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
 #converter-tabs {
-    margin: 20px 0;
+    margin-bottom: 20px;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    gap: 10px;
 }
 
 #converter-tabs button {
     padding: 10px 20px;
-    margin: 0 5px;
     border: none;
     border-radius: 5px;
     background-color: lightgray;
@@ -56,8 +64,9 @@ main {
     color: white;
 }
 
+/* Converter Sections */
 .converter-section {
-    margin: 20px 0;
+    margin-top: 20px;
 }
 
 .hidden {
@@ -65,35 +74,51 @@ main {
 }
 
 /* Forms */
-form {
-    margin-bottom: 20px;
-}
-
-form label {
-    margin-right: 10px;
+form label,
+form input,
+form select,
+form button {
+    display: block;
+    margin: 10px auto;
+    font-size: 16px;
 }
 
 form input,
 form select {
-    margin-right: 10px;
+    padding: 8px;
+    width: 90%;
+    max-width: 400px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: teal;
+    color: white;
+    cursor: pointer;
 }
 
 /* Results and History */
 ul {
     list-style: none;
     padding: 0;
+    margin: 10px auto;
     text-align: left;
-    margin: 0 auto;
-    width: 80%;
+    width: 90%;
+    max-width: 400px;
 }
 
 ul li {
     margin: 5px 0;
+    word-wrap: break-word;
 }
 
 /* Actions */
 #actions {
-    margin: 20px 0;
+    margin-top: 20px;
 }
 
 #actions button {
