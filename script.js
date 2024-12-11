@@ -84,6 +84,39 @@ function convertTemperature(value, unit) {
     }
 }
 
+// Weight Converter
+document.getElementById("weight-convert").addEventListener("click", function () {
+    const weight = parseFloat(document.getElementById("weight").value);
+    const unit = document.getElementById("weight-unit").value;
+
+    if (isNaN(weight)) {
+        alert("Please enter a valid number.");
+        return;
+    }
+
+    const conversions = convertWeight(weight, unit);
+    displayResults(conversions, "weight-results");
+    addToHistory(weight, unit, conversions, "weight-history");
+});
+
+function convertWeight(value, unit) {
+    let kilograms;
+    switch (unit) {
+        case "kilograms": kilograms = value; break;
+        case "pounds": kilograms = value / 2.20462; break;
+        case "grams": kilograms = value / 1000; break;
+        case "ounces": kilograms = value / 35.274; break;
+        case "stones": kilograms = value * 6.35029; break;
+    }
+    return {
+        Kilograms: kilograms.toFixed(2),
+        Pounds: (kilograms * 2.20462).toFixed(2),
+        Grams: (kilograms * 1000).toFixed(2),
+        Ounces: (kilograms * 35.274).toFixed(2),
+        Stones: (kilograms / 6.35029).toFixed(2),
+    };
+}
+
 // Common Functions
 function displayResults(conversions, resultId) {
     const resultsList = document.getElementById(resultId);
@@ -98,11 +131,8 @@ function displayResults(conversions, resultId) {
 function addToHistory(input, unit, conversions, historyId) {
     const historyList = document.getElementById(historyId);
     const historyItem = document.createElement("li");
-    
-    // Display conversions without quotes and braces
     const conversionText = Object.entries(conversions).map(([unit, value]) => `${unit}: ${value}`).join(", ");
     historyItem.textContent = `Converted ${input} ${unit} → ${conversionText}`;
-    
     const deleteBtn = document.createElement("button");
     deleteBtn.textContent = "Delete";
     deleteBtn.addEventListener("click", () => historyItem.remove());
@@ -110,10 +140,13 @@ function addToHistory(input, unit, conversions, historyId) {
     historyList.appendChild(historyItem);
 }
 
-// Change Background
+// Change Background with Multiple Colors
+const colors = ["lightgray", "white", "lightblue", "lightgreen", "lightpink"];
+let colorIndex = 0;
+
 document.getElementById("change-bg").addEventListener("click", function () {
-    document.body.style.backgroundColor = 
-        document.body.style.backgroundColor === "lightgray" ? "white" : "lightgray";
+    colorIndex = (colorIndex + 1) % colors.length;
+    document.body.style.backgroundColor = colors[colorIndex];
 });
 
 // Reset
