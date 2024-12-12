@@ -115,6 +115,8 @@ form button {
 #history-list {
     list-style-type: none;
     padding: 0;
+    max-height: 150px;
+    overflow-y: auto;
 }
 
 #history-list li {
