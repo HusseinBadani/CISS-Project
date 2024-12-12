@@ -134,7 +134,7 @@ ul.history-list li {
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
-    flex: 1 1 calc(30% - 10px); /* Adjust for flexible sizing */
+    flex: 1 1 calc(30% - 10px);
     min-width: 200px;
     text-align: left;
 }
