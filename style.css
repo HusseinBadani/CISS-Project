@@ -151,36 +151,3 @@ ul.history-list li button {
 ul.history-list li button:hover {
     background-color: darkred;
 }
-
-/* Buttons Styling */
-button.reset,
-button.change-bg {
-    padding: 12px 25px;
-    margin: 10px;
-    border: none;
-    border-radius: 25px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: transform 0.2s ease, background-color 0.3s ease;
-}
-
-button.reset {
-    background-color: #ff6f61;
-    color: white;
-}
-
-button.reset:hover {
-    background-color: #e5554d;
-    transform: scale(1.05);
-}
-
-button.change-bg {
-    background-color: #36a2eb;
-    color: white;
-}
-
-button.change-bg:hover {
-    background-color: #1a91da;
-    transform: scale(1.05);
-}
