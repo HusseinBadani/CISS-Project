@@ -1,4 +1,3 @@
-// Tab Switching Logic
 document.querySelectorAll("#converter-tabs button").forEach((button) => {
     button.addEventListener("click", function () {
         document.querySelectorAll(".converter-section").forEach((section) => {
@@ -11,7 +10,6 @@ document.querySelectorAll("#converter-tabs button").forEach((button) => {
     });
 });
 
-// Length Converter
 document.getElementById("length-convert").addEventListener("click", function () {
     const length = parseFloat(document.getElementById("length").value);
     const unit = document.getElementById("length-unit").value;
@@ -46,7 +44,6 @@ function convertLength(value, unit) {
     };
 }
 
-// Temperature Converter
 document.getElementById("temperature-convert").addEventListener("click", function () {
     const temp = parseFloat(document.getElementById("temperature").value);
     const unit = document.getElementById("temperature-unit").value;
@@ -84,7 +81,6 @@ function convertTemperature(value, unit) {
     }
 }
 
-// Weight Converter
 document.getElementById("weight-convert").addEventListener("click", function () {
     const weight = parseFloat(document.getElementById("weight").value);
     const unit = document.getElementById("weight-unit").value;
@@ -117,7 +113,6 @@ function convertWeight(value, unit) {
     };
 }
 
-// Display Results
 function displayResults(conversions, resultId) {
     const resultsList = document.getElementById(resultId);
     resultsList.innerHTML = "";
@@ -128,7 +123,6 @@ function displayResults(conversions, resultId) {
     }
 }
 
-// Update History Display
 function addToHistory(input, unit, conversions, type) {
     const historyList = document.getElementById("history-list");
     const historyItem = document.createElement("li");
@@ -143,7 +137,6 @@ function addToHistory(input, unit, conversions, type) {
     historyList.appendChild(historyItem);
 }
 
-// Change Background Color
 const colors = ["lightgray", "white", "lightblue", "lightgreen", "lightpink"];
 let colorIndex = 0;
 
@@ -152,7 +145,6 @@ document.getElementById("change-bg").addEventListener("click", function () {
     document.body.style.backgroundColor = colors[colorIndex];
 });
 
-// Reset Functionality
 document.getElementById("reset").addEventListener("click", function () {
     document.querySelectorAll("form input").forEach((input) => (input.value = ""));
     document.querySelectorAll("ul").forEach((list) => (list.innerHTML = ""));
