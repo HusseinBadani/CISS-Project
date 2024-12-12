@@ -1,11 +1,12 @@
-document.querySelectorAll("#converter-tabs button").forEach(button => {
+// Tab Switching Logic
+document.querySelectorAll("#converter-tabs button").forEach((button) => {
     button.addEventListener("click", function () {
-        document.querySelectorAll(".converter-section").forEach(section => {
+        document.querySelectorAll(".converter-section").forEach((section) => {
             section.classList.add("hidden");
         });
         document.querySelector(`#${this.dataset.target}`).classList.remove("hidden");
 
-        document.querySelectorAll("#converter-tabs button").forEach(btn => btn.classList.remove("active-tab"));
+        document.querySelectorAll("#converter-tabs button").forEach((btn) => btn.classList.remove("active-tab"));
         this.classList.add("active-tab");
     });
 });
@@ -22,7 +23,7 @@ document.getElementById("length-convert").addEventListener("click", function () 
 
     const conversions = convertLength(length, unit);
     displayResults(conversions, "length-results");
-    addToHistory(length, unit, conversions, "length-history");
+    addToHistory(length, unit, conversions, "Length");
 });
 
 function convertLength(value, unit) {
@@ -41,7 +42,7 @@ function convertLength(value, unit) {
         Feet: (meters * 3.28084).toFixed(2),
         Inches: (meters * 39.3701).toFixed(2),
         Kilometers: (meters / 1000).toFixed(2),
-        Miles: (meters / 1609.34).toFixed(2)
+        Miles: (meters / 1609.34).toFixed(2),
     };
 }
 
@@ -57,7 +58,7 @@ document.getElementById("temperature-convert").addEventListener("click", functio
 
     const conversions = convertTemperature(temp, unit);
     displayResults(conversions, "temperature-results");
-    addToHistory(temp, unit, conversions, "temperature-history");
+    addToHistory(temp, unit, conversions, "Temperature");
 });
 
 function convertTemperature(value, unit) {
@@ -65,20 +66,20 @@ function convertTemperature(value, unit) {
         case "celsius":
             return {
                 Celsius: value.toFixed(2),
-                Fahrenheit: ((value * 9/5) + 32).toFixed(2),
-                Kelvin: (value + 273.15).toFixed(2)
+                Fahrenheit: ((value * 9 / 5) + 32).toFixed(2),
+                Kelvin: (value + 273.15).toFixed(2),
             };
         case "fahrenheit":
             return {
-                Celsius: ((value - 32) * 5/9).toFixed(2),
+                Celsius: ((value - 32) * 5 / 9).toFixed(2),
                 Fahrenheit: value.toFixed(2),
-                Kelvin: (((value - 32) * 5/9) + 273.15).toFixed(2)
+                Kelvin: (((value - 32) * 5 / 9) + 273.15).toFixed(2),
             };
         case "kelvin":
             return {
                 Celsius: (value - 273.15).toFixed(2),
-                Fahrenheit: (((value - 273.15) * 9/5) + 32).toFixed(2),
-                Kelvin: value.toFixed(2)
+                Fahrenheit: (((value - 273.15) * 9 / 5) + 32).toFixed(2),
+                Kelvin: value.toFixed(2),
             };
     }
 }
@@ -95,7 +96,7 @@ document.getElementById("weight-convert").addEventListener("click", function () 
 
     const conversions = convertWeight(weight, unit);
     displayResults(conversions, "weight-results");
-    addToHistory(weight, unit, conversions, "weight-history");
+    addToHistory(weight, unit, conversions, "Weight");
 });
 
 function convertWeight(value, unit) {
@@ -105,18 +106,18 @@ function convertWeight(value, unit) {
         case "pounds": kilograms = value / 2.20462; break;
         case "grams": kilograms = value / 1000; break;
         case "ounces": kilograms = value / 35.274; break;
-        case "stones": kilograms = value * 6.35029; break;
+        case "tons": kilograms = value * 1000; break;
     }
     return {
         Kilograms: kilograms.toFixed(2),
         Pounds: (kilograms * 2.20462).toFixed(2),
         Grams: (kilograms * 1000).toFixed(2),
         Ounces: (kilograms * 35.274).toFixed(2),
-        Stones: (kilograms / 6.35029).toFixed(2),
+        Tons: (kilograms / 1000).toFixed(2),
     };
 }
 
-// Common Functions
+// Display Results
 function displayResults(conversions, resultId) {
     const resultsList = document.getElementById(resultId);
     resultsList.innerHTML = "";
@@ -127,11 +128,14 @@ function displayResults(conversions, resultId) {
     }
 }
 
-function addToHistory(input, unit, conversions, historyId) {
-    const historyList = document.getElementById(historyId);
+// Add to History
+function addToHistory(input, unit, conversions, type) {
+    const historyList = document.getElementById("history-list");
     const historyItem = document.createElement("li");
-    const conversionText = Object.entries(conversions).map(([unit, value]) => `${unit}: ${value}`).join(", ");
-    historyItem.textContent = `Converted ${input} ${unit} → ${conversionText}`;
+    const conversionText = Object.entries(conversions)
+        .map(([unit, value]) => `${unit}: ${value}`)
+        .join(", ");
+    historyItem.textContent = `${type} - Converted ${input} ${unit}: ${conversionText}`;
     const deleteBtn = document.createElement("button");
     deleteBtn.textContent = "Delete";
     deleteBtn.addEventListener("click", () => historyItem.remove());
@@ -139,7 +143,7 @@ function addToHistory(input, unit, conversions, historyId) {
     historyList.appendChild(historyItem);
 }
 
-// Change Background with Multiple Colors
+// Change Background Color
 const colors = ["lightgray", "white", "lightblue", "lightgreen", "lightpink"];
 let colorIndex = 0;
 
@@ -148,8 +152,15 @@ document.getElementById("change-bg").addEventListener("click", function () {
     document.body.style.backgroundColor = colors[colorIndex];
 });
 
-// Reset
+// Reset Functionality
 document.getElementById("reset").addEventListener("click", function () {
-    document.querySelectorAll("form input").forEach(input => input.value = "");
-    document.querySelectorAll("ul").forEach(list => list.innerHTML = "");
+    document.querySelectorAll("form input").forEach((input) => (input.value = ""));
+    document.querySelectorAll("ul").forEach((list) => (list.innerHTML = ""));
+    document.querySelector("#length-converter").classList.remove("hidden");
+    document.querySelectorAll(".converter-section:not(#length-converter)").forEach((section) =>
+        section.classList.add("hidden")
+    );
+    document.querySelectorAll("#converter-tabs button").forEach((btn) => btn.classList.remove("active-tab"));
+    document.querySelector("#converter-tabs button[data-target='length-converter']").classList.add("active-tab");
+    document.body.style.backgroundColor = "lightgray";
 });
