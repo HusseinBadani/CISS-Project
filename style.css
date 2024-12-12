@@ -7,16 +7,16 @@ body {
     padding: 0;
     text-align: center;
     display: flex;
-    flex-direction: column; /* Stack elements vertically */
-    align-items: center; /* Center horizontally */
-    height: 100vh; /* Full viewport height */
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
     transition: background-color 0.5s;
 }
 
 /* Header Styles */
 header {
     margin-top: 20px;
-    margin-bottom: 40px; /* Add space between title and converters */
+    margin-bottom: 40px;
     text-align: center;
 }
 
@@ -101,65 +101,51 @@ form button {
     cursor: pointer;
 }
 
-/* Results */
-ul#length-results,
-ul#temperature-results {
-    list-style: none;
-    padding: 0;
-    margin: 10px auto;
-    text-align: left;
-    width: 90%;
-    max-width: 400px;
-}
-
 /* History (Outside the Box) */
 .history-container {
-    width: 100%; /* Stretch full width */
+    width: 95%;
     background-color: white;
-    padding: 10px;
+    padding: 20px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     margin-top: 20px;
+    border-radius: 10px;
 }
 
 .history-container h3 {
-    margin: 0 0 10px;
-    padding-left: 10px;
-    text-align: left;
-    font-size: 1.2rem;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
     color: teal;
+    text-align: left;
+    padding-left: 10px;
 }
 
 ul.history-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
     list-style: none;
     padding: 0;
     margin: 0;
-    text-align: left;
-    width: 100%; /* Full width */
-    display: flex; /* Make the history items align horizontally */
-    flex-wrap: wrap; /* Wrap items if they overflow */
-    gap: 10px; /* Add spacing between items */
+    justify-content: space-between;
 }
 
 ul.history-list li {
+    background-color: #f9f9f9;
     padding: 10px;
-    border-bottom: none; /* Remove bottom border */
     border: 1px solid #ddd;
-    display: flex;
-    align-items: center; /* Align items vertically */
-    gap: 10px;
-    flex: 1; /* Make items expand to fit available space */
-    word-wrap: break-word;
+    border-radius: 5px;
+    flex: 1 1 calc(30% - 10px); /* Adjust for flexible sizing */
+    min-width: 200px;
+    text-align: left;
 }
 
 ul.history-list li button {
-    margin-left: auto;
-    background-color: crimson; /* Red delete button */
+    background-color: crimson;
     color: white;
     border: none;
     border-radius: 5px;
     padding: 5px 10px;
     cursor: pointer;
-    text-align: right; /* Align delete button to the right */
 }
 
 ul.history-list li button:hover {
@@ -169,29 +155,32 @@ ul.history-list li button:hover {
 /* Buttons Styling */
 button.reset,
 button.change-bg {
-    padding: 10px 20px;
-    margin: 10px 5px;
+    padding: 12px 25px;
+    margin: 10px;
     border: none;
-    border-radius: 5px;
+    border-radius: 25px;
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.3s ease;
 }
 
 button.reset {
-    background-color: darkgray;
+    background-color: #ff6f61;
     color: white;
 }
 
 button.reset:hover {
-    background-color: gray;
+    background-color: #e5554d;
+    transform: scale(1.05);
 }
 
 button.change-bg {
-    background-color: teal;
+    background-color: #36a2eb;
     color: white;
 }
 
 button.change-bg:hover {
-    background-color: darkcyan;
+    background-color: #1a91da;
+    transform: scale(1.05);
 }
