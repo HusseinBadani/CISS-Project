@@ -128,7 +128,7 @@ function addToHistory(input, unit, conversions, type) {
     const historyItem = document.createElement("li");
     const conversionText = Object.entries(conversions)
         .map(([unit, value]) => `${unit}: ${value}`)
-        .join("\n"); // Display each conversion on a new line
+        .join("\n");
     historyItem.textContent = `${type} - Converted ${input} ${unit}:\n${conversionText}`;
     const deleteBtn = document.createElement("button");
     deleteBtn.textContent = "Delete";
