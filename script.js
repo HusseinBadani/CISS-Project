@@ -128,14 +128,14 @@ function displayResults(conversions, resultId) {
     }
 }
 
-// Add to History
+// Update History Display
 function addToHistory(input, unit, conversions, type) {
     const historyList = document.getElementById("history-list");
     const historyItem = document.createElement("li");
     const conversionText = Object.entries(conversions)
         .map(([unit, value]) => `${unit}: ${value}`)
-        .join(", ");
-    historyItem.textContent = `${type} - Converted ${input} ${unit}: ${conversionText}`;
+        .join("\n"); // Display each conversion on a new line
+    historyItem.textContent = `${type} - Converted ${input} ${unit}:\n${conversionText}`;
     const deleteBtn = document.createElement("button");
     deleteBtn.textContent = "Delete";
     deleteBtn.addEventListener("click", () => historyItem.remove());
