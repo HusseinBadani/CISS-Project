@@ -4,7 +4,7 @@ document.querySelectorAll("#converter-tabs button").forEach(button => {
         document.querySelectorAll(".converter-section").forEach(section => {
             section.classList.add("hidden");
         });
-        document.querySelector(`#${this.dataset.target}`).classList.remove("hidden");
+        document.querySelector(#${this.dataset.target}).classList.remove("hidden");
 
         document.querySelectorAll("#converter-tabs button").forEach(btn => btn.classList.remove("active-tab"));
         this.classList.add("active-tab");
@@ -23,7 +23,7 @@ document.getElementById("length-convert").addEventListener("click", function () 
 
     const conversions = convertLength(length, unit);
     displayResults(conversions, "length-results");
-    addToHistory(length, unit, conversions, "Length");
+    addToHistory(length, unit, conversions, "length-history");
 });
 
 function convertLength(value, unit) {
@@ -58,7 +58,7 @@ document.getElementById("temperature-convert").addEventListener("click", functio
 
     const conversions = convertTemperature(temp, unit);
     displayResults(conversions, "temperature-results");
-    addToHistory(temp, unit, conversions, "Temperature");
+    addToHistory(temp, unit, conversions, "temperature-history");
 });
 
 function convertTemperature(value, unit) {
@@ -66,23 +66,19 @@ function convertTemperature(value, unit) {
         case "celsius":
             return {
                 Celsius: value.toFixed(2),
-                Fahrenheit: ((value * 9 / 5) + 32).toFixed(2),
+                Fahrenheit: ((value * 9/5) + 32).toFixed(2),
                 Kelvin: (value + 273.15).toFixed(2)
             };
         case "fahrenheit":
             return {
-                Celsius: ((value - 32) * 5 / 9).toFixed(2),
+                Celsius: ((value - 32) * 5/9).toFixed(2),
                 Fahrenheit: value.toFixed(2),
-                Kelvin: (((value - 32) * 5 / 9) + 273.15).toFixed(2)
+                Kelvin: (((value - 32) * 5/9) + 273.15).toFixed(2)
             };
         case "kelvin":
-            if (value < 0) {
-                alert("Temperature in Kelvin cannot be negative.");
-                return {};
-            }
             return {
                 Celsius: (value - 273.15).toFixed(2),
-                Fahrenheit: (((value - 273.15) * 9 / 5) + 32).toFixed(2),
+                Fahrenheit: (((value - 273.15) * 9/5) + 32).toFixed(2),
                 Kelvin: value.toFixed(2)
             };
     }
@@ -100,7 +96,7 @@ document.getElementById("weight-convert").addEventListener("click", function () 
 
     const conversions = convertWeight(weight, unit);
     displayResults(conversions, "weight-results");
-    addToHistory(weight, unit, conversions, "Weight");
+    addToHistory(weight, unit, conversions, "weight-history");
 });
 
 function convertWeight(value, unit) {
@@ -127,18 +123,16 @@ function displayResults(conversions, resultId) {
     resultsList.innerHTML = "";
     for (const [unit, value] of Object.entries(conversions)) {
         const listItem = document.createElement("li");
-        listItem.textContent = `${unit}: ${value}`;
+        listItem.textContent = ${unit}: ${value};
         resultsList.appendChild(listItem);
     }
 }
 
-function addToHistory(input, unit, conversions, historyType) {
-    const historyList = document.getElementById("history-list"); // Unified history container
+function addToHistory(input, unit, conversions, historyId) {
+    const historyList = document.getElementById(historyId);
     const historyItem = document.createElement("li");
-    const conversionText = Object.entries(conversions)
-        .map(([unit, value]) => `${unit}: ${value}`)
-        .join(", ");
-    historyItem.textContent = `${historyType}: Converted ${input} ${unit} → ${conversionText}`;
+    const conversionText = Object.entries(conversions).map(([unit, value]) => ${unit}: ${value}).join(", ");
+    historyItem.textContent = Converted ${input} ${unit} → ${conversionText};
     const deleteBtn = document.createElement("button");
     deleteBtn.textContent = "Delete";
     deleteBtn.addEventListener("click", () => historyItem.remove());
@@ -153,13 +147,10 @@ let colorIndex = 0;
 document.getElementById("change-bg").addEventListener("click", function () {
     colorIndex = (colorIndex + 1) % colors.length;
     document.body.style.backgroundColor = colors[colorIndex];
-    this.textContent = `Change Background (Current: ${colors[colorIndex]})`;
 });
 
 // Reset
 document.getElementById("reset").addEventListener("click", function () {
     document.querySelectorAll("form input").forEach(input => input.value = "");
     document.querySelectorAll("ul").forEach(list => list.innerHTML = "");
-    document.body.style.backgroundColor = "white"; // Reset background
-    document.querySelectorAll("#converter-tabs button")[0].click(); // Reset to default tab
 });
