@@ -135,26 +135,63 @@ ul.history-list {
     margin: 0;
     text-align: left;
     width: 100%; /* Full width */
+    display: flex; /* Make the history items align horizontally */
+    flex-wrap: wrap; /* Wrap items if they overflow */
+    gap: 10px; /* Add spacing between items */
 }
 
 ul.history-list li {
     padding: 10px;
-    border-bottom: 1px solid #ddd;
+    border-bottom: none; /* Remove bottom border */
+    border: 1px solid #ddd;
     display: flex;
-    justify-content: space-between;
+    align-items: center; /* Align items vertically */
+    gap: 10px;
+    flex: 1; /* Make items expand to fit available space */
     word-wrap: break-word;
 }
 
 ul.history-list li button {
     margin-left: auto;
-    background-color: crimson;
+    background-color: crimson; /* Red delete button */
     color: white;
     border: none;
     border-radius: 5px;
     padding: 5px 10px;
     cursor: pointer;
+    text-align: right; /* Align delete button to the right */
 }
 
 ul.history-list li button:hover {
     background-color: darkred;
+}
+
+/* Buttons Styling */
+button.reset,
+button.change-bg {
+    padding: 10px 20px;
+    margin: 10px 5px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button.reset {
+    background-color: darkgray;
+    color: white;
+}
+
+button.reset:hover {
+    background-color: gray;
+}
+
+button.change-bg {
+    background-color: teal;
+    color: white;
+}
+
+button.change-bg:hover {
+    background-color: darkcyan;
 }
