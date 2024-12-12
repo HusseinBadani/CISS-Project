@@ -1,4 +1,3 @@
-// Switch Tabs
 document.querySelectorAll("#converter-tabs button").forEach(button => {
     button.addEventListener("click", function () {
         document.querySelectorAll(".converter-section").forEach(section => {
