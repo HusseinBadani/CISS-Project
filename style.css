@@ -126,12 +126,22 @@ form button {
 }
 
 #history-list li {
-    margin-bottom: 10px; /* Add spacing between entries */
-    white-space: pre-wrap; /* Preserve line breaks in text */
+    display: flex; /* Use flexbox for horizontal alignment */
+    align-items: center; /* Align items vertically */
+    justify-content: space-between; /* Distribute space */
+    margin-bottom: 10px;
+    padding: 5px;
+    border-bottom: 1px solid #ccc; /* Optional for separation */
+}
+
+#history-list .unit-details {
+    flex-grow: 1; /* Allow units to stretch */
+    text-align: left;
+    margin-right: 10px; /* Space between text and button */
 }
 
 #history-list button {
-    margin-left: 10px;
+    flex-shrink: 0; /* Prevent button from shrinking */
     padding: 5px 10px;
     background-color: red;
     color: white;
@@ -140,7 +150,7 @@ form button {
     cursor: pointer;
 }
 
-ul.history-list li button:hover {
+#history-list button:hover {
     background-color: darkred;
 }
 
@@ -157,6 +167,5 @@ ul.history-list li button:hover {
 
 #reset:hover,
 #change-bg:hover {
-    background-color: lightblue;
+    background-color: lightblue;
 }
-
