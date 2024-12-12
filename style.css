@@ -119,35 +119,44 @@ form button {
     padding-left: 10px;
 }
 
-ul.history-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    list-style: none;
+/* Style the history list */
+#history-list {
+    list-style-type: none; /* Remove bullets */
     padding: 0;
-    margin: 0;
-    justify-content: space-between;
 }
 
-ul.history-list li {
-    background-color: #f9f9f9;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    flex: 1 1 calc(30% - 10px);
-    min-width: 200px;
-    text-align: left;
+#history-list li {
+    margin-bottom: 10px; /* Add spacing between entries */
+    white-space: pre-wrap; /* Preserve line breaks in text */
 }
 
-ul.history-list li button {
-    background-color: crimson;
+#history-list button {
+    margin-left: 10px;
+    padding: 5px 10px;
+    background-color: red;
     color: white;
     border: none;
     border-radius: 5px;
-    padding: 5px 10px;
     cursor: pointer;
 }
 
 ul.history-list li button:hover {
     background-color: darkred;
 }
+
+/* Style the Reset and Change Background buttons */
+#reset,
+#change-bg {
+    border: 2px solid #000; /* Add a border to match the theme */
+    background-color: lightgray;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+#reset:hover,
+#change-bg:hover {
+    background-color: lightblue;
+}
+
