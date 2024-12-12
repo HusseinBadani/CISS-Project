@@ -1,4 +1,3 @@
-/* General Styles */
 body {
     font-family: Arial, sans-serif;
     background-color: lightgray;
@@ -13,7 +12,6 @@ body {
     transition: background-color 0.5s;
 }
 
-/* Header Styles */
 header {
     margin-top: 20px;
     margin-bottom: 40px;
@@ -32,7 +30,6 @@ header h2 {
     color: darkslategray;
 }
 
-/* Converter Container */
 #converter {
     background-color: white;
     border: 1px solid #ccc;
@@ -64,7 +61,6 @@ header h2 {
     color: white;
 }
 
-/* Converter Sections */
 .converter-section {
     margin-top: 20px;
 }
@@ -73,7 +69,6 @@ header h2 {
     display: none;
 }
 
-/* Forms */
 form label,
 form input,
 form select,
@@ -101,13 +96,12 @@ form button {
     cursor: pointer;
 }
 
-/* Adjust the position of the history box */
 .history-container {
-    width: 80%; /* Align width with the converter box */
-    margin: 30px auto 0; /* Add spacing from other elements */
-    position: relative; /* Ensure proper alignment */
-    top: 20px; /* Fine-tune spacing from the main converter box */
-    text-align: left; /* Align text for readability */
+    width: 100%;
+    margin: 30px auto 0;
+    position: relative;
+    top: 20px;
+    text-align: left;
 }
 
 .history-container h3 {
@@ -118,29 +112,28 @@ form button {
     padding-left: 10px;
 }
 
-/* Style the history list */
 #history-list {
-    list-style-type: none; /* Remove bullets */
+    list-style-type: none;
     padding: 0;
 }
 
 #history-list li {
-    display: flex; /* Use flexbox for horizontal alignment */
-    align-items: center; /* Align items vertically */
-    justify-content: space-between; /* Distribute space */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     margin-bottom: 10px;
     padding: 5px;
-    border-bottom: 1px solid #ccc; /* Optional for separation */
+    border-bottom: 1px solid #ccc;
 }
 
 #history-list .unit-details {
-    flex-grow: 1; /* Allow units to stretch */
+    flex-grow: 1;
     text-align: left;
-    margin-right: 10px; /* Space between text and button */
+    margin-right: 10px;
 }
 
 #history-list button {
-    flex-shrink: 0; /* Prevent button from shrinking */
+    flex-shrink: 0;
     padding: 5px 10px;
     background-color: red;
     color: white;
@@ -153,10 +146,9 @@ form button {
     background-color: darkred;
 }
 
-/* Style the Reset and Change Background buttons */
 #reset,
 #change-bg {
-    border: 2px solid #000; /* Add a border to match the theme */
+    border: 2px solid #000;
     background-color: lightgray;
     padding: 10px 20px;
     cursor: pointer;
