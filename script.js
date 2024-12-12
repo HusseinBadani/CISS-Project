@@ -3,7 +3,7 @@ document.querySelectorAll("#converter-tabs button").forEach(button => {
         document.querySelectorAll(".converter-section").forEach(section => {
             section.classList.add("hidden");
         });
-        document.querySelector(#${this.dataset.target}).classList.remove("hidden");
+        document.querySelector(`#${this.dataset.target}`).classList.remove("hidden");
 
         document.querySelectorAll("#converter-tabs button").forEach(btn => btn.classList.remove("active-tab"));
         this.classList.add("active-tab");
@@ -122,7 +122,7 @@ function displayResults(conversions, resultId) {
     resultsList.innerHTML = "";
     for (const [unit, value] of Object.entries(conversions)) {
         const listItem = document.createElement("li");
-        listItem.textContent = ${unit}: ${value};
+        listItem.textContent = `${unit}: ${value}`;
         resultsList.appendChild(listItem);
     }
 }
@@ -130,8 +130,8 @@ function displayResults(conversions, resultId) {
 function addToHistory(input, unit, conversions, historyId) {
     const historyList = document.getElementById(historyId);
     const historyItem = document.createElement("li");
-    const conversionText = Object.entries(conversions).map(([unit, value]) => ${unit}: ${value}).join(", ");
-    historyItem.textContent = Converted ${input} ${unit} → ${conversionText};
+    const conversionText = Object.entries(conversions).map(([unit, value]) => `${unit}: ${value}`).join(", ");
+    historyItem.textContent = `Converted ${input} ${unit} → ${conversionText}`;
     const deleteBtn = document.createElement("button");
     deleteBtn.textContent = "Delete";
     deleteBtn.addEventListener("click", () => historyItem.remove());
