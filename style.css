@@ -30,6 +30,23 @@ header h2 {
     color: darkslategray;
 }
 
+#language-switcher {
+    margin-bottom: 20px;
+}
+
+#change-language {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: lightgray;
+    cursor: pointer;
+}
+
+#change-language:hover {
+    background-color: lightblue;
+}
+
 #converter {
     background-color: white;
     border: 1px solid #ccc;
