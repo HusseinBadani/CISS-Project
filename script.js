@@ -10,6 +10,30 @@ document.querySelectorAll("#converter-tabs button").forEach((button) => {
     });
 });
 
+document.getElementById("change-language").addEventListener("click", function () {
+    document.querySelectorAll("h1, h2, h3, h4, label, button").forEach((element) => {
+        const translations = {
+            "Hussein's Final Project": "Proyecto Final de Hussein",
+            "CISS100": "CISS100",
+            "Length Converter": "Convertidor de Longitud",
+            "Temperature Converter": "Convertidor de Temperatura",
+            "Weight Converter": "Convertidor de Peso",
+            "Enter Length:": "Ingresar Longitud:",
+            "Select Unit:": "Seleccionar Unidad:",
+            "Convert": "Convertir",
+            "Enter Temperature:": "Ingresar Temperatura:",
+            "Enter Weight:": "Ingresar Peso:",
+            "Change Background": "Cambiar Fondo",
+            "Reset": "Restablecer",
+            "Conversion History:": "Historial de Conversiones:",
+        };
+        if (translations[element.textContent]) {
+            element.textContent = translations[element.textContent];
+        }
+    });
+    alert("Idioma cambiado a español.");
+});
+
 document.getElementById("length-convert").addEventListener("click", function () {
     const length = parseFloat(document.getElementById("length").value);
     const unit = document.getElementById("length-unit").value;
